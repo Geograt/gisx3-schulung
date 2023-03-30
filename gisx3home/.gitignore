@@ -1,7 +1,7 @@
 .DS_Store
 Thunbs.db
 /datastores/gisx2/config/database.properties
-/datastores/gisx3/config/**/*
+/datastores/gisx3/config/database.properties
 /permalinks/**/*
 /temp/**/*
 /.project
