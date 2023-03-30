@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://www.geograt.de/namespaces/gisx3/projectdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key>LURCHINGEN</key>
+	<baseMapProjectKey>ALK_LURCHINGEN</baseMapProjectKey>
+	<displayName>lurchingen</displayName>
+	<description>Projektdefinition</description>
+	<defaultCRS>EPSG:25832</defaultCRS>
+	<centerPoint>
+		<centerPoint>
+			<lat>49.60774</lat>
+			<lon>9.906967</lon>
+		</centerPoint>
+		<crs>EPSG:4326</crs>
+		<radius>2400</radius>
+	</centerPoint>
+	<minZoom>12</minZoom>
+	<maxZoom>24</maxZoom>
+	<defaultZoom>12</defaultZoom>
+</Project>

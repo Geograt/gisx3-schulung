@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Reine Stildatei: enthält Textstile -->
+<templatestyles xmlns="http://www.geograt.de/namespaces/gisx3/printtemplates/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<textStyles>
+	
+		<!-- common text -->
+		<style name="normal">
+			<font>Verdana</font>
+			<size>8.0</size>
+			<color>
+				<refColor>normal</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- smaller common text -->
+		<style name="small">
+			<font>Verdana</font>
+			<size>6.0</size>
+			<color>
+				<refColor>normal</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- bigger common text -->
+		<style name="big">
+			<font>Verdana</font>
+			<size>9.0</size>
+			<color>
+				<refColor>normal</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- text design for titles -->
+		<style name="title">
+			<font>Verdana</font>
+			<size>13.0</size>
+			<color>
+				<refColor>normal</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- text for logo -->
+		<style name="logo">
+			<font>Verdana</font>
+			<width>1.2</width>
+			<weight>2.2</weight>
+			<size>10.0</size>
+			<color>
+				<refColor>normal</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- style for warning texts -->
+		<style name="warning">
+			<font>Verdana</font>
+			<size>8.0</size>
+			<color>
+				<refColor>warning</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+		<!-- style for smaller warning texts -->
+		<style name="warning_small">
+			<font>Verdana</font>
+			<size>6.0</size>
+			<color>
+				<refColor>warning</refColor>
+			</color>
+			<align>left</align>
+		</style>
+		
+	</textStyles>
+</templatestyles>	

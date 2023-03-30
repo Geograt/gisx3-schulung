@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<templatestyles xmlns="http://www.geograt.de/namespaces/gisx3/printtemplates/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<colors>
+	
+		<!-- common color -->
+		<color name="normal">
+			<namedColor>black</namedColor>
+		</color>
+	
+		<!-- color for the big map frame and objects, which are meant to be the same color -->
+		<color name="frame">
+			<namedColor>black</namedColor>
+		</color>
+	
+		<!-- color for grid lines -->
+		<color name="grid">
+			<namedColor>gray</namedColor>
+		</color>
+		
+		<!-- light gray -->
+		<color name="gray_light">
+			<rgbColor>
+				<red>192</red>
+				<green>192</green>
+				<blue>192</blue>
+			</rgbColor>
+		</color>
+		
+		<!-- dark gray -->
+		<color name="gray_dark">
+			<rgbColor>
+				<red>75</red>
+				<green>75</green>
+				<blue>75</blue>
+			</rgbColor>
+		</color>
+		
+		<!-- transparent light gray (elements below will show trough) -->
+		<color name="gray_light_alpha">
+			<rgbColor>
+				<red>192</red>
+				<green>192</green>
+				<blue>192</blue>
+				<alpha>192</alpha>
+			</rgbColor>
+		</color>
+		
+		<!-- color for warnings -->
+		<color name="warning">
+			<namedColor>red</namedColor>
+		</color>
+	</colors>
+</templatestyles>

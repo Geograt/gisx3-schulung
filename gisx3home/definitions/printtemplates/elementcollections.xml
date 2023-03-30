@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<templatestyles xmlns="http://www.geograt.de/namespaces/gisx3/printtemplates/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- These are additional fields, which can be filled by the user, right before requesting the PDF. 
+	They are only shown for a template in case they are really used. -->
+	<userContents>
+			<userContent key="bemerkung">
+				<name>Bemerkung</name>
+				<description>Weitere Bemerkung</description>
+			</userContent>
+			
+			<userContent key="title_2">
+				<name>2. Titelzeile</name>
+				<description>Weitere Titelzeile</description>
+			</userContent>
+			
+			<userContent key="title_3">
+				<name>3. Titelzeile</name>
+				<description>Weitere Titelzeile</description>
+			</userContent>
+	</userContents>
+	
+	<!-- From here on you can find different kinds of elementCollections. 
+	These can be used as content for a collection in the final templates. -->
+	
+	<!-- This is a special design with default filling and a slightly shifted border. -->
+	<elementCollection name="filled">
+		<polygon>
+			<style name="filled"/>
+			<points>
+				<point xref="left" yref="top"><x>0.0</x><y>0.0</y></point>
+				<point xref="right" yref="top"><x>0.0</x><y>0.0</y></point>
+				<point xref="right" yref="bottom"><x>0.0</x><y>0.0</y></point>
+				<point xref="left" yref="bottom"><x>0.0</x><y>0.0</y></point>
+			</points>
+		</polygon>
+		<polygon>
+			<style name="border"/>
+			<points>
+				<point xref="left" yref="top"><x>0.1</x><y>0.1</y></point>
+				<point xref="right" yref="top"><x>0.1</x><y>0.1</y></point>
+				<point xref="right" yref="bottom"><x>0.1</x><y>0.1</y></point>
+				<point xref="left" yref="bottom"><x>0.1</x><y>0.1</y></point>
+			</points>
+		</polygon>
+	</elementCollection>
+	
+	
+	<!-- Stamp/Block with default details -->
+	<elementCollection name="company_one">
+		<image>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>0.3</x>
+					<y>0.3</y>
+				</start>
+				<size>
+					<width>1.7</width>
+					<height>1.7</height>
+				</size>
+			</location>
+			<src>logo.png</src>
+			<border name="nothing"/>
+		</image>
+		<text>
+			<location>
+				<start>
+					<x>0.7</x>
+					<y>0.3</y>
+				</start>
+				<size>
+					<width>12.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="logo"/>
+			<border name="nothing"/>
+			<content>GEOGRAT Informationssystem GmbH</content>
+		</text>
+		<text>
+			<location>
+				<start>
+					<x>0.7</x>
+					<y>0.8</y>
+				</start>
+				<size>
+					<width>12.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="normal"/>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<line>
+			<style name="black_thick"/>
+			<points>
+				<point>
+					<x>0.7</x><y>1.2</y>
+				</point>
+				<point xref="right">
+					<x>2.5</x><y>1.2</y>
+				</point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start>
+					<x>0.7</x>
+					<y>1.3</y>
+				</start>
+				<size>
+					<width>7.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="small"/>
+			<border name="nothing"/>
+			<dynamicContent>
+			    <user>title_2</user>
+			</dynamicContent>
+		</text>
+		<text>
+			<location>
+				<start>
+					<x>0.7</x>
+					<y>1.7</y>
+				</start>
+				<size>
+					<width>7.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="small"/>
+			<border name="nothing"/>
+			<dynamicContent>
+			    <user>bemerkung</user>
+			</dynamicContent>
+		</text>
+		<text>
+			<location>
+				<start xref="right">
+					<x>2.5</x>
+					<y>1.3</y>
+				</start>
+				<size>
+					<width>7.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="small"><align>right</align></style>
+			<border name="nothing"/>
+			<content>Auszug vom ${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right">
+					<x>2.5</x>
+					<y>1.7</y>
+				</start>
+				<size>
+					<width>7.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="normal"><align>right</align></style>
+			<border name="nothing"/>
+			<content>M = 1:${scale}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<!-- This stamp/block has a more technical approach and is designed in a way, 
+	which is most often used in plans done with cad. -->
+	<elementCollection name="company_two">
+		<polygon>
+			<style name="border_filled"/>
+			<points>
+				<point xref="right" yref="bottom"><x>0.0</x><y>4.0</y></point>
+				<point xref="right" yref="bottom"><x>0.0</x><y>0.0</y></point>
+				<point xref="right" yref="bottom"><x>18.1</x><y>0.0</y></point>
+				<point xref="right" yref="bottom"><x>18.1</x><y>4.0</y></point>
+			</points>
+		</polygon>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>5.8</x><y>4.0</y></point>
+				<point xref="right" yref="bottom"><x>5.8</x><y>0.0</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>15.3</x><y>4.0</y></point>
+				<point xref="right" yref="bottom"><x>15.3</x><y>0.0</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>5.8</x><y>3.2</y></point>
+				<point xref="right" yref="bottom"><x>15.3</x><y>3.2</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>5.8</x><y>2.2</y></point>
+				<point xref="right" yref="bottom"><x>15.3</x><y>2.2</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>5.8</x><y>1.3</y></point>
+				<point xref="right" yref="bottom"><x>15.3</x><y>1.3</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>5.8</x><y>0.5</y></point>
+				<point xref="right" yref="bottom"><x>15.3</x><y>0.5</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>12.25</x><y>3.2</y></point>
+				<point xref="right" yref="bottom"><x>12.25</x><y>2.2</y></point>
+			</points>
+		</line>
+		<line>
+			<style name="black"/>
+			<points>
+				<point xref="right" yref="bottom"><x>9.2</x><y>3.2</y></point>
+				<point xref="right" yref="bottom"><x>9.2</x><y>2.2</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>6.0</x>
+					<y>3.3</y>
+				</start>
+				<size>
+					<width>9.0</width>
+					<height>0.5</height>
+				</size>	
+			</location>
+			<style name="normal"><width>1.2</width></style>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<image>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>0.2</x>
+					<y>2.0</y>
+				</start>
+				<size>
+					<width>1.7</width>
+					<height>1.7</height>
+				</size>
+			</location>
+			<src>logo.png</src>
+			<border name="nothing"/>
+		</image>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>2.7</x>
+					<y>3.0</y>
+				</start>
+				<size>
+					<width>2.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="logo"><align>left</align><size>10.0</size></style>
+			<border name="nothing"/>
+			<content>GEOGRAT</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>2.7</x>
+					<y>2.5</y>
+				</start>
+				<size>
+					<width>2.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="normal"><align>left</align><size>6.0</size></style>
+			<border name="nothing"/>
+			<content>Informationssysteme</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>2.7</x>
+					<y>2.0</y>
+				</start>
+				<size>
+					<width>2.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="normal"><align>left</align><size>6.0</size></style>
+			<border name="nothing"/>
+			<content>Schloßstraße 7</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>2.7</x>
+					<y>1.8</y>
+				</start>
+				<size>
+					<width>2.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="normal"><align>left</align><size>6.0</size></style>
+			<border name="nothing"/>
+			<content>91792 Ellingen</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>0.7</x>
+					<y>1.4</y>
+				</start>
+				<size>
+					<width>4.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="normal"><align>left</align><size>6.0</size></style>
+			<border name="nothing"/>
+			<content>09141 / 8671-0</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>0.7</x>
+					<y>1.2</y>
+				</start>
+				<size>
+					<width>4.8</width>
+					<height>0.7</height>
+				</size>	
+			</location>
+			<style name="normal"><align>left</align><size>6.0</size></style>
+			<border name="nothing"/>
+			<content>www.geograt.de</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>0.3</x>
+					<y>0.1</y>
+				</start>
+				<size>
+					<width>5.2</width>
+					<height>1.0</height>
+				</size>	
+			</location>
+			<style name="small"><align>equal</align><size>5.0</size></style>
+			<border name="nothing"/>
+			<content>In der Darstellung der Grenzen können Veränderungen berücksichtigt sein, die noch nicht in das Grundbuch übernommen sind. Der Gebäudebestand kann vom örtlichen Bestand abweichen.</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>14.8</x>
+					<y>1.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.0</x>
+					<y>0.55</y>
+				</end>
+			</location>
+			<style name="normal"><lines>1</lines></style>
+			<border name="nothing"/>
+			<dynamicContent space="false">
+				<user>bemerkung</user>
+			</dynamicContent>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>14.8</x>
+					<y>0.45</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.0</x>
+					<y>0.0</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Zur Maßentnahme bedingt geeignet !</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>14.8</x>
+					<y>2.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.0</x>
+					<y>1.7</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Einzeichnungen in das Original sind verboten !</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>14.8</x>
+					<y>1.7</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.0</x>
+					<y>1.3</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Weitergabe und Vervielfältigung an Dritte bedingt erlaubt.</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>15.1</x>
+					<y>3.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>12.4</x>
+					<y>2.8</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Maßstab:</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>9.1</x>
+					<y>3.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.4</x>
+					<y>2.8</y>
+				</end>
+			</location>
+			<style name="small"/>
+			<border name="nothing"/>
+			<content>Ellingen, den</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>14.8</x>
+					<y>2.8</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>12.4</x>
+					<y>2.3</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>1:${scale}</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>8.8</x>
+					<y>2.8</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>6.4</x>
+					<y>2.3</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+		<symbol>
+				<location>
+					<start xref="right" yref="bottom"><x>15.6</x><y>0.3</y></start>
+					<size><width>2.2</width><height>3.4</height></size>
+				</location>
+				<border name="nothing"/>
+				<name>north09</name>
+				<turnNorth>true</turnNorth>
+			</symbol>
+			<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>12.1</x>
+					<y>3.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>9.4</x>
+					<y>2.8</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Benutzer:</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="bottom">
+					<x>11.8</x>
+					<y>2.8</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>9.4</x>
+					<y>2.3</y>
+				</end>
+			</location>
+			<style name="normal"><lines>1</lines></style>
+			<border name="nothing"/>
+			<content>${username}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<!-- The following elementCollections are meant as pieces of stamps to be combined in a modular way.
+	The elementCollections named title_* are designed, to be easily exchanged by each other, because
+	they all share a similar width/heigth-ratio. However they look best with a height of 1.8cm. -->
+	<elementCollection name="title_one_row">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.15</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>0.75</y>
+				</end>
+			</location>
+			<style name="title"></style>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="left" yref="top"><x>0</x><y>0.9</y></point>
+				<point xref="right" yref="top"><x>0</x><y>0.9</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>1.1</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>5</x>
+					<y>1.5</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Maßstab 1:${scale}</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.1</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>5</x>
+					<y>1.5</y>
+				</end>
+			</location>
+			<style name="normal">
+				<align>right</align>
+			</style>
+			<border name="nothing"/>
+			<content>Auszug vom ${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="title_one_row_v2">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.15</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>0.75</y>
+				</end>
+			</location>
+			<style name="title"></style>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="left" yref="top"><x>0</x><y>0.9</y></point>
+				<point xref="right" yref="top"><x>0</x><y>0.9</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>1.0</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>2.3</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Maßstab</content>
+		</text>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.4</x>
+					<y>1.3</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>2.3</x>
+					<y>1.6</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>1:${scale}</content>
+		</text>
+		
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>2.7</x>
+					<y>1.0</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>2.7</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Ersteller</content>
+		</text>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>2.9</x>
+					<y>1.3</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>2.7</x>
+					<y>1.6</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>${username}</content>
+		</text>
+		
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>2.3</x>
+					<y>1.0</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Datum</content>
+		</text>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>2.1</x>
+					<y>1.3</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.6</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="title_two_rows">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.2</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>3.7</x>
+					<y>0.8</y>
+				</end>
+			</location>
+			<style name="title"></style>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>1.0</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>3.7</x>
+					<y>1.4</y>
+				</end>
+			</location>
+			<style name="big"></style>
+			<border name="nothing"/>
+			<dynamicContent>
+			    <user>title_2</user>
+			</dynamicContent>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>0</y></point>
+				<point xref="right" yref="bottom"><x>3.5</x><y>0</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>0.6</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Maßstab: 1:${scale}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>0.6</y></point>
+				<point xref="right" yref="top"><x>0</x><y>0.6</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>0.7</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Datum: ${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>1.2</y></point>
+				<point xref="right" yref="top"><x>0</x><y>1.2</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>1.3</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.8</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Ersteller: ${username}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="title_three_rows">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>3.7</x>
+					<y>0.55</y>
+				</end>
+			</location>
+			<style name="title"></style>
+			<border name="nothing"/>
+			<content>${title}</content>
+		</text>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.75</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>3.7</x>
+					<y>1.15</y>
+				</end>
+			</location>
+			<style name="big"></style>
+			<border name="nothing"/>
+			<dynamicContent>
+			    <user>title_2</user>
+			</dynamicContent>
+		</text>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>1.25</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>3.7</x>
+					<y>1.65</y>
+				</end>
+			</location>
+			<style name="big"></style>
+			<border name="nothing"/>
+			<dynamicContent>
+			    <user>title_3</user>
+			</dynamicContent>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>0</y></point>
+				<point xref="right" yref="bottom"><x>3.5</x><y>0</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>0.6</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Maßstab: 1:${scale}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>0.6</y></point>
+				<point xref="right" yref="top"><x>0</x><y>0.6</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>0.7</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Datum: ${.now?string["dd.MM.yyyy"]}</content>
+		</text>
+		<line>
+			<style name="grid"/>
+			<points>
+				<point xref="right" yref="top"><x>3.5</x><y>1.2</y></point>
+				<point xref="right" yref="top"><x>0</x><y>1.2</y></point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="right" yref="top">
+					<x>3.3</x>
+					<y>1.3</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>1.8</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<!-- Cut after 11 chars, as this would break line otherwise... -->
+			<content>Ersteller: ${username[0..*11]}</content>
+		</text>
+	</elementCollection>
+	
+	<!-- The next elementCollections sometimes only consist of only one internal element. This is still useful,
+	when the content is used in more than one template. E.g. if one day the copyright text has to be
+	changed, then there would be only one position, where this has to be done.-->
+	<elementCollection name="copyright">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.05</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>0.2</x>
+					<y>0.05</y>
+				</end>
+			</location>
+			<style name="small">
+				<align>center</align>
+			</style>
+			<border name="nothing"/>
+			<content>© ${copyright}</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="disclaimer">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.05</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>0.2</x>
+					<y>0.05</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Zur Maßentnahme nur bedingt geeignet!
+			Keine Gewähr für Vollständigkeit und Richtigkeit der Angaben!
+			Genaue Lage und Tiefe von Anlagen und Leitungen sind vor Ort durch Aufgrabungen festzustellen!
+			</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="logo">
+		<image>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.1</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>0.1</x>
+					<y>0.1</y>
+				</end>
+			</location>
+			<src>logo.png</src>
+			<border name="nothing"/>
+		</image>
+	</elementCollection>
+	
+	
+	<elementCollection name="logo_wide">
+		<image>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.1</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>0.1</x>
+					<y>0.1</y>
+				</end>
+			</location>
+			<src>logo_wide.png</src>
+			<border name="nothing"/>
+		</image>
+	</elementCollection>
+	
+	
+	<elementCollection name="logo_address">
+		<image>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.1</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.1</x>
+					<y>1.1</y>
+				</end>
+			</location>
+			<src>logo_wide.png</src>
+			<border name="nothing"/>
+		</image>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>1.2</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>3.0</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Schloßstraße 7
+				91792 Ellingen
+				
+				09141 / 8671-0
+				www.geograt.de
+			</content>
+		</text>
+	</elementCollection>
+	
+	
+	<elementCollection name="northing">
+		<symbol>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.1</x>
+					<y>0.1</y>
+				</start>
+				<end xref="right" yref="bottom">
+					<x>0.1</x>
+					<y>0.1</y>
+				</end>
+			</location>
+			<border name="nothing"/>
+			<name>north09</name>
+			<turnNorth>true</turnNorth>
+		</symbol>
+	</elementCollection>
+	
+	<!-- Here is an example for building a static legend. I's also possible to create a single
+	xml-symbol containing all used symbols, lines and texts and use this legend-symbol alone. -->
+	<elementCollection name="static_legend">
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.2</x>
+					<y>0.2</y>
+				</start>
+				<end xref="right" yref="top">
+					<x>0.2</x>
+					<y>0.7</y>
+				</end>
+			</location>
+			<style name="normal"></style>
+			<border name="nothing"/>
+			<content>Legende</content>
+		</text>
+		
+		<symbol>
+			<location>
+				<start xref="left" yref="top">
+					<x>0.45</x>
+					<y>0.8</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>0.95</x>
+					<y>1.3</y>
+				</end>
+			</location>
+			<border name="nothing"/>
+			<name>dk__scha</name>
+		</symbol>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>1.4</x>
+					<y>0.9</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>4</x>
+					<y>1.2</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Kanal-Schacht</content>
+		</text>
+
+		<line>
+			<style>
+				<lineColor>
+					<rgbColor>
+						<red>127</red>
+						<green>0</green>
+						<blue>127</blue>
+					</rgbColor>
+				</lineColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			<points>
+				<point>
+					<x>0.2</x><y>1.55</y>
+				</point>
+				<point>
+					<x>1.2</x><y>1.55</y>
+				</point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>1.4</x>
+					<y>1.4</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>4</x>
+					<y>1.7</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Mischwasser</content>
+		</text>
+
+		<line>
+			<style>
+				<lineColor>
+					<rgbColor>
+						<red>139</red>
+						<green>69</green>
+						<blue>19</blue>
+					</rgbColor>
+				</lineColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			<points>
+				<point>
+					<x>0.2</x><y>1.95</y>
+				</point>
+				<point>
+					<x>1.2</x><y>1.95</y>
+				</point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>1.4</x>
+					<y>1.8</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>4</x>
+					<y>2.1</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Schmutzwasser</content>
+		</text>
+
+		<line>
+			<style>
+				<lineColor>
+					<rgbColor>
+						<red>30</red>
+						<green>144</green>
+						<blue>255</blue>
+					</rgbColor>
+				</lineColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			<points>
+				<point>
+					<x>0.2</x><y>2.35</y>
+				</point>
+				<point>
+					<x>1.2</x><y>2.35</y>
+				</point>
+			</points>
+		</line>
+		<text>
+			<location>
+				<start xref="left" yref="top">
+					<x>1.4</x>
+					<y>2.2</y>
+				</start>
+				<end xref="left" yref="top">
+					<x>4</x>
+					<y>2.5</y>
+				</end>
+			</location>
+			<style name="small"></style>
+			<border name="nothing"/>
+			<content>Regenwasser</content>
+		</text>
+	</elementCollection>
+	
+	<!-- The lines for folding are hidden for a DIN A4 print. They are shown for bigger print formats. 
+	They are designed for a left border of 2.5cm and 0.5cm for the other three borders. -->
+	<elementCollection name="fold_lines">
+		<line>
+			<style name="fold_line"></style>
+			<points>
+				<point xref="right" yref="bottom">
+					<x>18.5</x><y>0.0</y>
+				</point>
+				<point xref="right" yref="bottom">
+					<x>18.5</x><y>0.5</y>
+				</point>
+			</points>
+		</line>
+		<polygon>
+			<style name="filled"/>
+			<points>
+				<point xref="left" yref="bottom">
+					<x>2.3</x><y>0</y>
+				</point>
+				<point xref="left" yref="bottom">
+					<x>2.3</x><y>0.51</y>
+				</point>
+				<point xref="left" yref="bottom">
+					<x>2.7</x><y>0.51</y>
+				</point>
+				<point xref="left" yref="bottom">
+					<x>2.7</x><y>0</y>
+				</point>
+			</points>
+		</polygon>
+		
+		<line>
+			<style name="fold_line"/>
+			<points>
+				<point xref="right" yref="bottom">
+					<x>0</x><y>29.7</y>
+				</point>
+				<point xref="right" yref="bottom">
+					<x>0.5</x><y>29.7</y>
+				</point>
+			</points>
+		</line>
+		<polygon>
+			<style name="filled"/>
+			<points>
+				<point xref="right" yref="top">
+					<x>0</x><y>-0.2</y>
+				</point>
+				<point xref="right" yref="top">
+					<x>0.51</x><y>-0.2</y>
+				</point>
+				<point xref="right" yref="top">
+					<x>0.51</x><y>0.4</y>
+				</point>
+				<point xref="right" yref="top">
+					<x>0</x><y>0.4</y>
+				</point>
+			</points>
+		</polygon>
+		
+		<!-- The frame has to be redrawn afterwards, because it might be partially hidden by the white polygon. -->
+		<polygon>
+			<style name="frame"/>
+			<points>
+				<point xref="left" yref="top">
+					<x>2.5</x><y>0.5</y>
+				</point>
+				<point xref="right" yref="top">
+					<x>0.5</x><y>0.5</y>
+				</point>
+				<point xref="right" yref="bottom">
+					<x>0.5</x><y>0.5</y>
+				</point>
+				<point xref="left" yref="bottom">
+					<x>2.5</x><y>0.5</y>
+				</point>
+			</points>
+		</polygon>
+	</elementCollection>
+</templatestyles>

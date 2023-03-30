@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MiniMap xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Showing overview -->
+	<layers>
+		<ref>commons.wms.web-raster</ref>
+	</layers>
+</MiniMap>

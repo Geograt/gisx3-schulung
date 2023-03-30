@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Format xmlns="http://www.geograt.de/namespaces/gisx3/formatdefinition/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<formatDefinition>
+		<name>date</name>
+		<type>
+			<date>
+				<dateFormat>
+					<date>medium</date>
+				</dateFormat>
+			</date>
+		</type>
+	</formatDefinition>
+	<formatDefinition>
+		<name>currency</name>
+		<type>
+			<currency>
+				<unit>EUR</unit>
+				<options>
+					<style>symbol</style>
+				</options>
+			</currency>
+		</type>
+	</formatDefinition>
+</Format>

@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<printtemplates xmlns="http://www.geograt.de/namespaces/gisx3/printtemplates/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- including other files -->
+	<includes>
+
+		<!-- defined colors -->
+		<include>
+			<file>colorstyles.xml</file>
+		</include>
+
+		<!-- defined linestyles and polygonstyles -->
+		<include>
+			<file>objectstyles.xml</file>
+		</include>
+
+		<!-- defined textstyles -->
+		<include>
+			<file>textstyles.xml</file>
+		</include>
+
+		<!-- predefined collections -->
+		<include>
+			<file>elementcollections.xml</file>
+		</include>
+	</includes>
+
+	<template2>
+		<name>Ohne Rahmen</name>
+		<leftBorder>0</leftBorder>
+		<rightBorder>0</rightBorder>
+		<upperBorder>0</upperBorder>
+		<lowerBorder>0</lowerBorder>
+		<style name="nothing" />
+
+		<!-- Area for the map -->
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>0</x>
+						<y>0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0</x>
+						<y>0</y>
+					</end>
+				</box>
+			</location>
+			<style name="nothing" />
+		</map>
+		<elements>
+			<text>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.1</x>
+						<y>0.1</y>
+					</start>
+					<size>
+						<width>15.2</width>
+						<height>0.5</height>
+					</size>
+				</location>
+				<border>
+					<drawLine>false</drawLine>
+					<fillPolygon>false</fillPolygon>
+				</border>
+				<style name="normal">
+					<align>right</align>
+					<italic>true</italic>
+					<weight>2.0</weight>
+				</style>
+				<content>© ${copyright}</content>
+			</text>
+		</elements>
+	</template2>
+
+
+	<!-- a simple Template with simple frame -->
+	<template2>
+		<name>Einfacher Rahmen</name>
+		<leftBorder>0.5</leftBorder>
+		<rightBorder>0.5</rightBorder>
+		<upperBorder>0.5</upperBorder>
+		<lowerBorder>0.5</lowerBorder>
+		<style name="nothing" />
+
+		<!-- Map area -->
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</box>
+			</location>
+			<style name="black" />
+		</map>
+		<elements>
+			<text>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.1</x>
+						<y>0.1</y>
+					</start>
+					<size>
+						<width>15.2</width>
+						<height>0.5</height>
+					</size>
+				</location>
+				<border>
+					<drawLine>false</drawLine>
+					<fillPolygon>false</fillPolygon>
+				</border>
+				<style name="normal">
+					<align>right</align>
+					<italic>true</italic>
+					<weight>2.0</weight>
+				</style>
+				<content>© ${copyright}</content>
+			</text>
+		</elements>
+	</template2>
+	<!-- a template with simple stamp area -->
+	<template2>
+		<name>Einfacher Stempel</name>
+		<leftBorder>2.0</leftBorder>
+		<rightBorder>0.5</rightBorder>
+		<upperBorder>1.0</upperBorder>
+		<lowerBorder>1.0</lowerBorder>
+		<style name="nothing" />
+
+		<!-- Map area -->
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</box>
+			</location>
+			<style name="black" />
+		</map>
+
+		<!-- The elements drawn above the map -->
+		<elements>
+			<collection>
+
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.1</x>
+						<y>0.1</y>
+					</start>
+					<size>
+						<width>15.2</width>
+						<height>2.2</height>
+					</size>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>filled</refCollection>
+					<refCollection>company_one</refCollection>
+				</elements>
+			</collection>
+			<text>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>2.3</y>
+					</start>
+					<size>
+						<width>15.2</width>
+						<height>0.5</height>
+					</size>
+				</location>
+				<border>
+					<drawLine>false</drawLine>
+					<fillPolygon>false</fillPolygon>
+				</border>
+				<style name="normal">
+					<align>right</align>
+					<italic>true</italic>
+					<weight>2.0</weight>
+				</style>
+				<content>© ${copyright}</content>
+			</text>
+		</elements>
+	</template2>
+
+	<!-- a template with a more technical approach for the design of the stamp -->
+	<template2>
+		<name>Technisch</name>
+		<leftBorder>1.9</leftBorder>
+		<rightBorder>1.0</rightBorder>
+		<upperBorder>0.8</upperBorder>
+		<lowerBorder>1.0</lowerBorder>
+		<style name="nothing" />
+
+		<!-- Map area -->
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</box>
+			</location>
+			<style name="black" />
+		</map>
+
+		<!-- The elements drawn above the map -->
+		<elements>
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<size>
+						<width>18.1</width>
+						<height>4.0</height>
+					</size>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>company_two</refCollection>
+				</elements>
+			</collection>
+			<text>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>4.0</y>
+					</start>
+					<size>
+						<width>14.1</width>
+						<height>0.5</height>
+					</size>
+				</location>
+				<border>
+					<drawLine>false</drawLine>
+					<fillPolygon>false</fillPolygon>
+				</border>
+				<style name="normal">
+					<align>right</align>
+					<italic>true</italic>
+					<weight>2.0</weight>
+				</style>
+				<content>© ${copyright}</content>
+			</text>
+		</elements>
+	</template2>
+
+	<!-- The following four templates all use a more modular design for the stamps and rely heavily on predefined elementCollections. 
+		They shall give some ideas on how to combine the provided pieces. They are designed to have fold lines for bigger formats 
+		than DIN A4, which are hidden in the DIN A4-format. This way the same template can be used for different formats, as 
+		long as the stamp fits as well. -->
+	<template2>
+		<name>Kleiner Stempel mit Offset</name>
+		<leftBorder>0</leftBorder>
+		<rightBorder>0</rightBorder>
+		<upperBorder>0</upperBorder>
+		<lowerBorder>0</lowerBorder>
+		<style name="nothing" />
+
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>2.5</x>
+						<y>0.5</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</end>
+				</box>
+			</location>
+			<style name="frame" />
+		</map>
+		<!-- Area for drawn elements above the map area -->
+		<elements>
+			<!-- These lines are drawn outside the map area and are hidden, when the format doesn't need to be folded. -->
+			<collection>
+				<location>
+					<start xref="left" yref="top">
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>fold_lines</refCollection>
+				</elements>
+			</collection>
+			<!-- All other elements will be placed inside the map area. Collections can be used in order to create a new coordinate 
+				system for their collected elements. The next collection is the area for the stamp elements. -->
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.8</x>
+						<y>0.8</y>
+					</start>
+					<size>
+						<width>12.2</width>
+						<height>2.7</height>
+					</size>
+				</location>
+				<style name="filled" />
+				<elements>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>2</x>
+								<y>0.2</y>
+							</start>
+							<end xref="left" yref="bottom">
+								<x>0.2</x>
+								<y>0.7</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>title_one_row</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>0.2</x>
+								<y>0.2</y>
+							</start>
+							<size>
+								<width>1.8</width>
+								<height>1.8</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>logo</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="bottom">
+								<x>0.2</x>
+								<y>0.2</y>
+							</start>
+							<end xref="left" yref="bottom">
+								<x>0.2</x>
+								<y>0.7</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>copyright</refCollection>
+						</elements>
+					</collection>
+				</elements>
+			</collection>
+		</elements>
+	</template2>
+
+	<template2>
+		<name>Großer Stempel</name>
+		<leftBorder>0</leftBorder>
+		<rightBorder>0</rightBorder>
+		<upperBorder>0</upperBorder>
+		<lowerBorder>0</lowerBorder>
+		<style name="nothing" />
+
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>2.5</x>
+						<y>0.5</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</end>
+				</box>
+			</location>
+			<style name="frame" />
+		</map>
+		<!-- Area for drawn elements above the map area -->
+		<elements>
+			<!-- These lines are drawn outside the map area and are hidden, when the format doesn't need to be folded. -->
+			<collection>
+				<location>
+					<start xref="left" yref="top">
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>fold_lines</refCollection>
+				</elements>
+			</collection>
+			<!-- All other elements will be placed inside the map area. Collections can be used in order to create a new coordinate 
+				system for their collected elements. The next collection is the area for the stamp elements. -->
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</start>
+					<size>
+						<width>18</width>
+						<height>3.5</height>
+					</size>
+				</location>
+				<style name="stamp" />
+				<elements>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>1.8</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>10</width>
+								<height>1.8</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>title_three_rows</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>1.8</width>
+								<height>1.8</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>logo</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="bottom">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>1.8</width>
+								<height>1.7</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>northing</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="bottom">
+								<x>1.8</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>10</width>
+								<height>0.5</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>copyright</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="bottom">
+								<x>1.8</x>
+								<y>0.5</y>
+							</start>
+							<size>
+								<width>10</width>
+								<height>1.2</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>disclaimer</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="left" yref="top">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<end xref="right" yref="bottom">
+								<x>11.8</x>
+								<y>0</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>static_legend</refCollection>
+						</elements>
+					</collection>
+				</elements>
+			</collection>
+		</elements>
+	</template2>
+
+	<template2>
+		<name>Detaillierte Adresse</name>
+		<leftBorder>0</leftBorder>
+		<rightBorder>0</rightBorder>
+		<upperBorder>0</upperBorder>
+		<lowerBorder>0</lowerBorder>
+		<style name="nothing" />
+
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>2.5</x>
+						<y>0.5</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</end>
+				</box>
+			</location>
+			<style name="frame" />
+		</map>
+		<!-- Area for drawn elements above the map area -->
+		<elements>
+			<!-- These lines are drawn outside the map area and are hidden, when the format doesn't need to be folded. -->
+			<collection>
+				<location>
+					<start xref="left" yref="top">
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>fold_lines</refCollection>
+				</elements>
+			</collection>
+			<!-- All other elements will be placed inside the map area. Collections can be used in order to create a new coordinate 
+				system for their collected elements. The next collection is the area for the stamp elements. -->
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</start>
+					<size>
+						<width>18</width>
+						<height>2.7</height>
+					</size>
+				</location>
+				<style name="frame">
+					<fillPolygon>true</fillPolygon>
+				</style>
+				<elements>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>9</width>
+								<height>1.8</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>title_two_rows</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="bottom">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>10</width>
+								<height>0.7</height>
+							</size>
+						</location>
+						<style name="nothing" />
+						<elements>
+							<refCollection>copyright</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>9</x>
+								<y>0</y>
+							</start>
+							<size>
+								<width>5</width>
+								<height>2.7</height>
+							</size>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>logo_address</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="left" yref="top">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<end xref="right" yref="bottom">
+								<x>14</x>
+								<y>0</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>static_legend</refCollection>
+						</elements>
+					</collection>
+				</elements>
+			</collection>
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>2</x>
+						<y>3.7</y>
+					</start>
+					<size>
+						<width>6</width>
+						<height>1.7</height>
+					</size>
+				</location>
+				<style name="warning" />
+				<elements>
+					<refCollection>disclaimer</refCollection>
+				</elements>
+			</collection>
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>4</x>
+						<y>5.9</y>
+					</start>
+					<size>
+						<width>2</width>
+						<height>2</height>
+					</size>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>northing</refCollection>
+				</elements>
+			</collection>
+		</elements>
+	</template2>
+
+	<template2>
+		<name>Breites Logo</name>
+		<leftBorder>0</leftBorder>
+		<rightBorder>0</rightBorder>
+		<upperBorder>0</upperBorder>
+		<lowerBorder>0</lowerBorder>
+		<style name="nothing" />
+
+		<map>
+			<location>
+				<box>
+					<start>
+						<x>2.5</x>
+						<y>0.5</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.5</x>
+						<y>0.5</y>
+					</end>
+				</box>
+			</location>
+			<style name="frame" />
+		</map>
+		<!-- Area for drawn elements above the map area -->
+		<elements>
+			<!-- These lines are drawn outside the map area and are hidden, when the format doesn't need to be folded. -->
+			<collection>
+				<location>
+					<start xref="left" yref="top">
+						<x>0.0</x>
+						<y>0.0</y>
+					</start>
+					<end xref="right" yref="bottom">
+						<x>0.0</x>
+						<y>0.0</y>
+					</end>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>fold_lines</refCollection>
+				</elements>
+			</collection>
+			<!-- All other elements will be placed inside the map area. Collections can be used in order to create a new coordinate 
+				system for their collected elements. The next collection is the area for the stamp elements. -->
+			<collection>
+				<location>
+					<start xref="right" yref="bottom">
+						<x>1</x>
+						<y>1</y>
+					</start>
+					<size>
+						<width>15</width>
+						<height>3</height>
+					</size>
+				</location>
+				<style name="stamp" />
+				<elements>
+					<collection>
+						<location>
+							<start xref="left" yref="top">
+								<x>0</x>
+								<y>0</y>
+							</start>
+							<end xref="right" yref="top">
+								<x>5</x>
+								<y>1.8</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>title_one_row_v2</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>0</x>
+								<y>0.4</y>
+							</start>
+							<size>
+								<width>5</width>
+								<height>1.2</height>
+							</size>
+						</location>
+						<style name="nothing" />
+						<elements>
+							<refCollection>logo_wide</refCollection>
+						</elements>
+					</collection>
+					<line>
+						<style name="stamp" />
+						<points>
+							<point xref="right" yref="top">
+								<x>0</x>
+								<y>1.8</y>
+							</point>
+							<point xref="right" yref="top">
+								<x>5</x>
+								<y>1.8</y>
+							</point>
+						</points>
+					</line>
+					<collection>
+						<location>
+							<start xref="right" yref="top">
+								<x>5</x>
+								<y>1.8</y>
+							</start>
+							<end xref="right" yref="bottom">
+								<x>0</x>
+								<y>0</y>
+							</end>
+						</location>
+						<style name="nothing" />
+						<elements>
+							<refCollection>copyright</refCollection>
+						</elements>
+					</collection>
+					<collection>
+						<location>
+							<start xref="left" yref="top">
+								<x>0</x>
+								<y>1.8</y>
+							</start>
+							<end xref="right" yref="bottom">
+								<x>5</x>
+								<y>0</y>
+							</end>
+						</location>
+						<style name="stamp" />
+						<elements>
+							<refCollection>disclaimer</refCollection>
+						</elements>
+					</collection>
+				</elements>
+			</collection>
+			<collection>
+				<location>
+					<start xref="right" yref="top">
+						<x>1</x>
+						<y>1</y>
+					</start>
+					<size>
+						<width>5</width>
+						<height>2.7</height>
+					</size>
+				</location>
+				<style name="stamp" />
+				<elements>
+					<refCollection>static_legend</refCollection>
+				</elements>
+			</collection>
+			<collection>
+				<location>
+					<start xref="right" yref="top">
+						<x>7.5</x>
+						<y>1.5</y>
+					</start>
+					<size>
+						<width>2</width>
+						<height>2</height>
+					</size>
+				</location>
+				<style name="nothing" />
+				<elements>
+					<refCollection>northing</refCollection>
+				</elements>
+			</collection>
+		</elements>
+	</template2>
+
+</printtemplates>

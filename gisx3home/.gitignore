@@ -1,0 +1,14 @@
+.DS_Store
+Thunbs.db
+/datastores/gisx2/config/database.properties
+/datastores/gisx3/config/**/*
+/permalinks/**/*
+/temp/**/*
+/.project
+/gisx3datastore-documents/**/*
+/gisx3datastore-images/**/*
+/sys/internalDB.*.db
+/sys/*
+/.settings
+/.dbeaver
+/gisx3-configs.iml

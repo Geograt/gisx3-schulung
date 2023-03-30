@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<renderOptions
+	xmlns="http://www.geograt.de/namespaces/gisx3/renderOptions/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<paperFormat>
+		<name>A2</name>
+		<width>420</width>
+		<height>594</height>
+	</paperFormat>
+	<paperFormat>
+		<name>A3</name>
+		<width>297</width>
+		<height>420</height>
+	</paperFormat>
+	<paperFormat>
+		<name>A4</name>
+		<width>210</width>
+		<height>297</height>
+	</paperFormat>
+	<defaultPaperFormat>A4</defaultPaperFormat>
+	<scale>100</scale>
+	<scale>200</scale>
+	<scale>250</scale>
+	<scale>500</scale>
+	<scale>1000</scale>
+	<scale>2000</scale>
+	<defaultScale>500</defaultScale>
+	<defaultTemplate>Einfacher Rahmen</defaultTemplate> <!-- Siehe printtemplates.xml -->
+</renderOptions>

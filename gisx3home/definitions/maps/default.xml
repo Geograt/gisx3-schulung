@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Map xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<name>Beispiel</name>
+	<copyright></copyright>
+	<baseLayers>
+		<ref>commons.baselayer</ref>
+	</baseLayers>
+	<layers>
+		<group>
+			<visibleName>Vordergrundkarten</visibleName>
+			
+<layer><ref>gisx2.sewer.group-sewer</ref></layer>
+<layer><ref>gisx2.water.group-water</ref></layer>
+<layer><ref>gisx2.alkis.amtliche-grundkarte</ref></layer>
+
+			<!-- Optional empty layer that is only needed to present you some information. you may remove the following line. -->
+			<layer><empty><visibleName>Platzhalter</visibleName><authorization><restrictToRoles><roleName>ROLE_GISX3_ADMIN</roleName></restrictToRoles></authorization></empty></layer>
+
+		</group>
+	</layers>
+</Map>

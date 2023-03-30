@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<templatestyles xmlns="http://www.geograt.de/namespaces/gisx3/printtemplates/1.0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+		<!-- Linestyles: used for simple lines and map border -->
+		<lineStyles>
+			<!-- normal black line -->
+			<style name="black">
+				<drawLine>true</drawLine>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- thicker line -->
+			<style name="black_thick">
+				<drawLine>true</drawLine>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			
+			<!-- no line, used if an object would have a linestyle, but the line should be invisible -->
+			<style name="nothing">
+				<drawLine>false</drawLine>
+			</style>
+			
+			<!-- fine grid lines, used in the modular template examples; by setting drawLine to false all 
+			referenced lines will be invisible. By changing the referenced color "grid" to another color
+			(e.g. an even lighter grey or black) all referend lines will have the new color. -->
+			<style name="grid">
+				<drawLine>true</drawLine>
+				<lineColor>
+					<refColor>grid</refColor>
+				</lineColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- Fold lines should not attract too much attention, so they are the thinnest lines here. -->
+			<style name="fold_line">
+				<drawLine>true</drawLine>
+				<lineColor>
+					<refColor>frame</refColor>
+				</lineColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- For common objects this is usally the thinnest linewidth. -->
+			<style name="stamp">
+				<drawLine>true</drawLine>
+				<lineColor>
+					<refColor>frame</refColor>
+				</lineColor>
+				<lineWidth>0.025</lineWidth>
+			</style>
+		</lineStyles>
+		
+		<!-- Polygonstyles: used for all other objects like polygons, collections... -->
+		<polygonStyles>
+		
+			<!-- no filling, common frame -->
+			<style name="border">
+				<drawLine>true</drawLine>
+				<fillPolygon>false</fillPolygon>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- no filling, thicker frame -->
+			<style name="border_thick">
+				<drawLine>true</drawLine>
+				<fillPolygon>false</fillPolygon>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			
+			<!-- white filling, common frame -->
+			<style name="border_filled">
+				<drawLine>true</drawLine>
+				<fillPolygon>true</fillPolygon>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- white filling, thicker frame -->
+			<style name="border_thick_filled">
+				<drawLine>true</drawLine>
+				<fillPolygon>true</fillPolygon>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+				<lineWidth>0.02</lineWidth>
+			</style>
+			
+			<!-- white filling, no frame -->
+			<style name="filled">
+				<drawLine>false</drawLine>
+				<fillPolygon>true</fillPolygon>
+				<lineColor>
+					<namedColor>black</namedColor>
+				</lineColor>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+				<lineWidth>0.01</lineWidth>
+			</style>
+			
+			<!-- no filling, no frame -->
+			<style name="nothing">
+				<drawLine>false</drawLine>
+				<fillPolygon>false</fillPolygon>
+			</style>
+			
+			<!-- named polygonStyle, especially for frame objects -->
+			<style name="frame">
+				<drawLine>true</drawLine>
+				<fillPolygon>false</fillPolygon>
+				<lineColor>
+					<refColor>frame</refColor>
+				</lineColor>
+				<lineWidth>0.05</lineWidth>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+			</style>
+			
+			<!-- named polygonStyle, especially for stamp objects -->
+			<style name="stamp">
+				<drawLine>true</drawLine>
+				<fillPolygon>true</fillPolygon>
+				<lineColor>
+					<refColor>frame</refColor>
+				</lineColor>
+				<lineWidth>0.025</lineWidth>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+			</style>
+			
+			<!-- named polygonStyle, especially for warning frames -->
+			<style name="warning">
+				<drawLine>true</drawLine>
+				<fillPolygon>true</fillPolygon>
+				<lineColor>
+					<refColor>warning</refColor>
+				</lineColor>
+				<lineWidth>0.025</lineWidth>
+				<fillColor>
+					<namedColor>white</namedColor>
+				</fillColor>
+			</style>
+			
+		</polygonStyles>
+</templatestyles>
