@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CronEvent xmlns="http://www.geograt.de/namespaces/gisx3/triggerdefinition/1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <enabled>true</enabled>
+        <name>Update lucene cache</name>
+        <cronExpression>0 0 22 ? * * *</cronExpression>
+        <commands>
+                <invokeSystemCommand>
+                        <commandName>luceneRebuild</commandName>
+                </invokeSystemCommand>
+        </commands>
+</CronEvent>
