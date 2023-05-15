@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://www.geograt.de/namespaces/gisx3/workflowdefinition/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Neues Projekt</title>
+	<icon>add</icon>
+	<showInMapMenu>true</showInMapMenu>
+	<parts>
+		<create>
+			<partId>createProject</partId>
+			<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+			<maxFeatures>1</maxFeatures>
+			<presets>
+				<!-- Generiere eine ID auf der Frontend Seite im Browser -->
+				<attribute>
+					<attributeName>id</attributeName>
+					<function>uuid</function>
+				</attribute>
+				
+				<attribute>
+					<attributeName>textAttribute3</attributeName>
+					<function>currentUserId</function>
+				</attribute>
+			</presets>
+			<steps>
+				<geometry>
+					<title>Geometrie erfassen</title>
+					<description>Erfasse bitte die Geometrie des Projekts.</description>
+					<geoType>Polygon</geoType>
+					<targetAttribute>geometry</targetAttribute>
+				</geometry>
+
+				<form>
+					<title>Daten zum Projekt</title>
+					<description>Gib bitte Daten zum Projekt ein.</description>
+					<field>
+						<label>Projektnummer</label>
+						<attributeName>visibleId</attributeName>
+					</field>
+					<field>
+						<label>Projektstatus</label>
+						<attributeName>textAttribute1</attributeName>
+					</field>
+					<field>
+						<label>Projektname</label>
+						<attributeName>textAttribute2</attributeName>
+					</field>
+					<field>
+						<label>Verantwortlicher</label>
+						<attributeName>textAttribute3</attributeName>
+					</field>
+					<field>
+						<label>Budget</label>
+						<attributeName>doubleAttribute1</attributeName>
+					</field>
+					<field>
+						<label>Beschreibung</label>
+						<attributeName>textAttribute4</attributeName>
+					</field>
+					<field>
+						<label>Fachbereich</label>
+						<attributeName>multiSelectAttribute1</attributeName>
+					</field>
+					<field>
+						<label>Durchführungszeitraum</label>
+						<dateRange>
+							<startAttributeName>dateAttribute1</startAttributeName>
+							<endAttributeName>dateAttribute2</endAttributeName>
+						</dateRange>
+					</field>
+				</form>
+			</steps>
+		</create>
+	</parts>
+	<actions>
+		<refresh />
+	</actions>
+	<returns>
+		<first>
+			<ofPart>createProject</ofPart>
+		</first>
+	</returns>
+</Workflow>

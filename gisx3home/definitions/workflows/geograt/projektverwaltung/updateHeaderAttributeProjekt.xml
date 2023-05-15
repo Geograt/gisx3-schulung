@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://www.geograt.de/namespaces/gisx3/workflowdefinition/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Projekthauptdaten bearbeiten</title>
+	<icon>edit</icon>
+	<parts>
+		<singleFeatureSelect>
+			<title>Projekte wählen</title>
+			<featureThemes>
+				<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+			</featureThemes>
+			<parts>
+				<update>
+					<steps>
+						<form>
+							<title>Daten zum Projekt</title>
+							<description>Gib bitte Daten zum Projekt ein.</description>
+							<field>
+								<label>Projektnummer</label>
+								<attributeName>visibleId</attributeName>
+							</field>
+							<field>
+								<label>Projektstatus</label>
+								<attributeName>textAttribute1</attributeName>
+							</field>
+							<field>
+								<label>Projektname</label>
+								<attributeName>textAttribute2</attributeName>
+							</field>
+							<field>
+								<label>Verantwortlicher</label>
+								<attributeName>textAttribute3</attributeName>
+							</field>
+							<field>
+								<label>Budget</label>
+								<attributeName>doubleAttribute1</attributeName>
+							</field>
+						</form>
+					</steps>
+				</update>
+			</parts>
+		</singleFeatureSelect>
+	</parts>
+	<actions>
+		<refresh />
+	</actions>
+</Workflow>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FillStyle xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<color>
+		<cql><![CDATA[
+				convertToColor(Recode(
+					"textAttribute1",
+					'Geplant','255,0,0,100',
+					'In_Ausfuehrung','255,255,0,100',
+					'Erledigt','0,0,255,100'
+				))
+			]]></cql>
+	</color>
+</FillStyle>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dialog xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<header>
+		<headline>
+			<overline>Projektnummer</overline>
+			<attributeName>visibleId</attributeName>
+			<actions>
+				<showMap>
+					<mapId>geograt.projektverwaltung.map</mapId>
+				</showMap>
+				<workflow>
+					<text>Bearbeiten</text>
+					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
+					<preselect>
+						<dashboard />
+					</preselect>
+				</workflow>
+				<workflow>
+					<workflowId>geograt.projektverwaltung.updateGeometrieProjekt</workflowId>
+					<preselect>
+						<dashboard />
+					</preselect>
+				</workflow>
+				<delete>
+					<text>Löschen</text>
+					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
+					<messageDeleteSuccessful>Projekt wurde gelöscht.</messageDeleteSuccessful>
+					<messageDeleteFailed>Projekt konnte nicht gelöscht werden.</messageDeleteFailed>
+					<themeAfterDelete>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</themeAfterDelete>
+				</delete>
+			</actions>
+		</headline>
+		<highlights>
+			<name>Projektstatus</name>
+			<attributeName>textAttribute1</attributeName>
+		</highlights>
+		<highlights>
+			<name>Projektname</name>
+			<attributeName>textAttribute2</attributeName>
+		</highlights>
+		<highlights>
+			<name>Verantwortlicher</name>
+			<attributeName>textAttribute3</attributeName>
+		</highlights>
+		<highlights>
+			<name>Budget</name>
+			<attributeName>doubleAttribute1</attributeName>
+		</highlights>
+	</header>
+	<component>
+		<form>
+			<title>Angaben zum Projekt</title>
+			<content>
+				<field>
+					<name>Beschreibung</name>
+					<attributeName>textAttribute4</attributeName>
+				</field>
+				<field>
+					<name>Durchführungszeitraum</name>
+					<content>
+						<dateRange>
+							<startAttributeName>dateAttribute1</startAttributeName>
+							<endAttributeName>dateAttribute2</endAttributeName>
+						</dateRange>
+					</content>
+				</field>
+				<field>
+					<name>Fachbereich</name>
+					<attributeName>multiSelectAttribute1</attributeName>
+				</field>
+			</content>
+			<actions>
+				<update />
+			</actions>
+		</form>
+	</component>
+</Dialog>

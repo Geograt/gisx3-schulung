@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenuPart xmlns="http://www.geograt.de/namespaces/gisx3/navigationdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<rank>-100</rank>
+	<group>
+		<label>Projektverwaltung</label>
+		<icon>projector</icon>
+		<dashboard>
+			<label>Projekte</label>
+			<theme>gisx3:geograt.projektverwaltung.projekt</theme>
+		</dashboard>
+		<!-- Wenn Du irgendeine statische Seite (Homepage Nutzungsbedingungen einbauen möchtest) -->
+		<!-- <url>
+			<label>Unsere Homepage</label>
+			<url>https://www.geograt.de</url>
+		</url> -->
+	</group>
+</NavigationMenuPart>

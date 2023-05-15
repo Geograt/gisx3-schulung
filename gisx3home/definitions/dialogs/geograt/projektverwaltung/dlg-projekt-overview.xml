@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dialog xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Projektverwaltung - Projekt</title>
+	<component>
+		<table>
+			<title>Projektverwaltung - Projekt</title>
+			<spanColumns>4</spanColumns>
+			<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+			<column>
+				<attributeName>visibleId</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute1</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute2</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute3</attributeName>
+			</column>
+			<fullscreen>true</fullscreen>
+			<actions>
+				<click />
+				<showMap>
+					<mapId>geograt.projektverwaltung.map</mapId>
+				</showMap>
+				<workflow>
+					<text>Bearbeiten</text>
+					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
+					<preselect>
+						<self/>
+					</preselect>
+				</workflow>
+				<delete>
+					<text>Löschen</text>
+					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
+					<messageDeleteSuccessful>Projekt wurde gelöscht.</messageDeleteSuccessful>
+					<messageDeleteFailed>Projekt konnte nicht gelöscht werden.</messageDeleteFailed>
+				</delete>
+				<export>
+					<text>Export nach Excel</text>
+					<exportFormat>xlsx</exportFormat>
+				</export>
+				<addToSelection />
+			</actions>
+		</table>
+	</component>
+</Dialog>

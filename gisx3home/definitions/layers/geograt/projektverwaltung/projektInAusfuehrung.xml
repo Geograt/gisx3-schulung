@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VectorLayer xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>In Ausführung</visibleName>
+	<flatLayerName>Projekt - In Ausführung</flatLayerName>
+	<minZoom>14</minZoom>
+	<drawOrder>-100</drawOrder>
+	<dataStore>gisx3</dataStore>
+	<dataSource>geograt.projektverwaltung.projekt</dataSource>
+	<filter>e.userAttributes.textAttribute1 = 'In_Ausfuehrung'</filter>
+	<type>UntiledVector</type>
+	<showTooltip>true</showTooltip>
+	<fillStyle>
+		<color>
+			<layerValue>
+				<rgbColor>
+					<red>255</red>
+					<green>255</green>
+					<blue>0</blue>
+					<alpha>100</alpha>
+				</rgbColor>
+			</layerValue>
+		</color>
+	</fillStyle>
+	<lineStyle template="geograt.projektverwaltung.projektLineStyle" />
+</VectorLayer>

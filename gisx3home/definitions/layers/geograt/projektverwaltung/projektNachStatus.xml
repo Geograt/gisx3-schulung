@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VectorLayer xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Projekt nach Status</visibleName>
+	<minZoom>14</minZoom>
+	<drawOrder>-100</drawOrder>
+	<dataStore>gisx3</dataStore>
+	<dataSource>geograt.projektverwaltung.projekt</dataSource>
+	<tileGrid>
+		<minZoom>13</minZoom>
+		<maxZoom>13</maxZoom>
+	</tileGrid>
+	<type>TileVector</type>
+	<showTooltip>true</showTooltip>
+	<fillStyle template="geograt.projektverwaltung.projektFillStyle" />
+	<lineStyle template="geograt.projektverwaltung.projektLineStyle">
+		<!-- Linienstärke überschreiben, als Konstante in CQL. -->
+		<width>
+			<cql>5</cql>
+		</width>
+	</lineStyle>
+	<!-- Textstil -->
+	<textStyle>
+		<content>
+			<featureValue>
+				<attributeName>visibleId</attributeName>
+			</featureValue>
+		</content>
+		<fontFamily>
+			<layerValue>Arial</layerValue>
+		</fontFamily>
+		<height>
+			<layerValue>20.0</layerValue>
+		</height>
+		<unit>px</unit>
+		<halo>
+			<color>
+				<layerValue>
+					<rgbColor>
+						<red>255</red>
+						<green>255</green>
+						<blue>255</blue>
+					</rgbColor>
+				</layerValue>
+			</color>
+			<width>
+				<layerValue>10</layerValue>
+			</width>
+		</halo>
+	</textStyle>
+</VectorLayer>

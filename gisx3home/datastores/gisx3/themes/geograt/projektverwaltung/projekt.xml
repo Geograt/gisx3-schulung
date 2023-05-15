@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Projekt (Projektverwaltung)</visibleName>
+	<dataSource>GeneralObject</dataSource>
+	<filter>e.objectType = 'projektverwaltung.projekt'</filter>
+
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+		</restrictToRoles>
+	</authorization>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Bearbeitung</roleName>
+		</restrictToRoles>
+	</editable>
+
+	<tooltip>
+		<title><![CDATA[Projekt <#if textAttribute1 != 'Erledigt'> (${textAttribute1})</#if>]]></title>
+		<menu>
+			<dashboard />
+			<workflow>
+				<workflowId>geograt.projektverwaltung.updateGeometrieProjekt</workflowId>
+			</workflow>
+			<workflow>
+				<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
+			</workflow>
+		</menu>
+		<attribute>
+			<title>Projektnummer</title>
+			<content>${visibleId}</content>
+		</attribute>
+		<attribute>
+			<title>Projektname</title>
+			<content>${textAttribute2}</content>
+		</attribute>
+	</tooltip>
+	<attributeDefinition>
+		<attribute>
+			<name>objectType</name>
+			<constantValue>projektverwaltung.projekt</constantValue>
+			<protection>noupdate</protection>
+		</attribute>
+		<attribute>
+			<name>visibleId</name>
+			<visibleName>Projektnummer</visibleName>
+			<required>true</required>
+			<protection>noupdate</protection>
+		</attribute>
+		<attribute>
+			<name>textAttribute1</name>
+			<visibleName>Projektstatus</visibleName>
+			<valueList sorted="false">
+				<value>
+					<key>Geplant</key>
+					<namedColor>green</namedColor>
+				</value>
+				<value>
+					<key>In_Ausfuehrung</key>
+					<value>In Ausführung</value>
+					<namedColor>blue</namedColor>
+				</value>
+				<value>
+					<key>Erledigt</key>
+					<namedColor>grey</namedColor>
+				</value>
+			</valueList>
+			<required>true</required>
+			<defaultValue>Geplant</defaultValue>
+		</attribute>
+		<attribute>
+			<name>textAttribute2</name>
+			<visibleName>Projektname</visibleName>
+			<required>true</required>
+			<validationRules>
+				<minLen>
+					<message>Projektname muss mindestens fünf Zeichen haben</message>
+					<min>5</min>
+				</minLen>
+			</validationRules>
+		</attribute>
+		<attribute>
+			<name>textAttribute3</name>
+			<visibleName>Verantwortlicher</visibleName>
+			<existingTable>
+				<provider>users</provider>
+				<table>allUsers</table>
+			</existingTable>
+		</attribute>
+		<attribute>
+			<name>doubleAttribute1</name>
+			<visibleName>Budget</visibleName>
+			<unitLabel>€</unitLabel>
+			<format>currency</format>
+			<validationRules>
+				<min>
+					<message>Budget muss mindestens 1 € sein</message>
+					<min>1</min>
+				</min>
+				<max>
+					<message><![CDATA[Budget muss < 1000000 € sein]]></message>
+					<max>1000000</max>
+				</max>
+			</validationRules>
+		</attribute>
+		<attribute>
+			<name>textAttribute4</name>
+			<visibleName>Beschreibung</visibleName>
+			<multiline>true</multiline>
+		</attribute>
+		<attribute>
+			<name>dateAttribute1</name>
+			<visibleName>Durchführungszeitraum Beginn</visibleName>
+			<shortName>Beginn</shortName>
+		</attribute>
+		<attribute>
+			<name>dateAttribute2</name>
+			<visibleName>Durchführungszeitraum Ende</visibleName>
+			<shortName>Ende</shortName>
+		</attribute>
+		<attribute>
+			<name>multiSelectAttribute1</name>
+			<visibleName>Fachbereich</visibleName>
+			<valueList>
+				<value>
+					<key>Abwasser</key>
+				</value>
+				<value>
+					<key>Wasser</key>
+				</value>
+			</valueList>
+		</attribute>
+	</attributeDefinition>
+
+	<searchable>true</searchable>
+	<searchAttributes>
+		<name>visibleId</name>
+		<name>textAttribute2</name>
+		<name>textAttribute4</name>
+	</searchAttributes>
+	<searchOutput><![CDATA[Projekt ${visibleId} (${textAttribute1})]]></searchOutput>
+	<favoriteOutput><![CDATA[${visibleId} (${textAttribute1})]]></favoriteOutput>
+
+	<defaultDialog>geograt.projektverwaltung.dlg-projekt</defaultDialog>
+	<overviewDialog>geograt.projektverwaltung.dlg-projekt-overview</overviewDialog>
+</Theme>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VectorLayer xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Geplant</visibleName>
+	<flatLayerName>Projekt - Geplant</flatLayerName>
+	<minZoom>14</minZoom>
+	<drawOrder>-100</drawOrder>
+	<dataStore>gisx3</dataStore>
+	<dataSource>geograt.projektverwaltung.projekt</dataSource>
+	<filter>e.userAttributes.textAttribute1 = 'Geplant'</filter>
+	<type>UntiledVector</type>
+	<showTooltip>true</showTooltip>
+	<fillStyle>
+		<color>
+			<layerValue>
+				<rgbColor>
+					<red>255</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>100</alpha>
+				</rgbColor>
+			</layerValue>
+		</color>
+	</fillStyle>
+	<lineStyle template="geograt.projektverwaltung.projektLineStyle" />
+</VectorLayer>

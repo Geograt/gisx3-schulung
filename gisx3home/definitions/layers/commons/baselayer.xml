@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LayerGroup xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>BaseLayer</visibleName>
+	<layer>
+		<ref>commons.wms.web-raster</ref>
+	</layer>
+	<layer>
+		<ref>commons.wms.web-raster-grey</ref>
+	</layer>
+	<layer>
+		<empty>
+			<visibleName>Ohne alles</visibleName>
+			<visibleByDefault>false</visibleByDefault>
+			<drawOrder>-10000</drawOrder>
+		</empty>
+	</layer>
+</LayerGroup>

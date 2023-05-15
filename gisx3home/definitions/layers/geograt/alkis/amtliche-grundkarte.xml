@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LayerGroup xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Amtliche Grundkarte</visibleName>
+	<visibleByDefault>true</visibleByDefault>
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_VIEW_GISX2_Basemap</roleName>
+		</restrictToRoles>
+	</authorization>
+	<layer>
+		<group>
+			<visibleName>Flurstücke</visibleName>
+			<visibleByDefault>true</visibleByDefault>
+			<layer>
+				<ref>gisx2.alkis.flurstueck</ref>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.flurstueck-text</ref>
+			</layer>
+		</group>
+	</layer>
+	<layer>
+		<group>
+			<visibleName>Gebäude</visibleName>
+			<visibleByDefault>true</visibleByDefault>
+			<layer>
+				<ref>gisx2.alkis.gebaeudeflaeche</ref>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.bauteile</ref>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.gebaeudelinie</ref>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.gebaeudeflaeche-text</ref>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.gebaeudeflaeche-symbol</ref>
+			</layer>
+		</group>
+	</layer>
+	
+	<layer>
+		<group>
+			<visibleName>Lagebezeichnungen</visibleName>
+			<visibleByDefault>true</visibleByDefault>
+			<layer>
+				<ref>gisx2.alkis.lagebeschriftung</ref>
+			</layer>
+		</group>
+	</layer>
+	
+</LayerGroup>
