@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Fachbereich (Projektverwaltung)</visibleName>
+	<dataSource>GeneralLookupTableEntity</dataSource>
+	<filter>e.objectType = 'projektverwaltung.fachbereich'</filter>
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Admin</roleName>
+		</restrictToRoles>
+	</authorization>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Admin</roleName>
+		</restrictToRoles>
+	</editable>
+	<attributeDefinition>
+		<attribute>
+			<name>objectType</name>
+			<constantValue>projektverwaltung.fachbereich</constantValue>
+		</attribute>
+	</attributeDefinition>
+	
+	<overviewDialog>geograt.projektverwaltung.dlg-configuration</overviewDialog>
+</Theme>

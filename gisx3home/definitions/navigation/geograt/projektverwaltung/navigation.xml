@@ -13,5 +13,10 @@
 			<label>Unsere Homepage</label>
 			<url>https://www.geograt.de</url>
 		</url> -->
+		
+		<dashboard>
+			<label>Konfiguration</label>
+			<theme>gisx3:geograt.projektverwaltung.lutFachbereich</theme>
+		</dashboard>
 	</group>
 </NavigationMenuPart>

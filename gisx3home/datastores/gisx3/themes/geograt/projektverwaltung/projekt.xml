@@ -139,17 +139,15 @@
 			<visibleName>Durchführungszeitraum Ende</visibleName>
 			<shortName>Ende</shortName>
 		</attribute>
+		
+		
 		<attribute>
 			<name>multiSelectAttribute1</name>
 			<visibleName>Fachbereich</visibleName>
-			<valueList>
-				<value>
-					<key>Abwasser</key>
-				</value>
-				<value>
-					<key>Wasser</key>
-				</value>
-			</valueList>
+			<existingTable>
+				<provider>gisx3.generalLookupTableEntity</provider>
+				<table>projektverwaltung.fachbereich</table>
+			</existingTable>
 		</attribute>
 	</attributeDefinition>
 
