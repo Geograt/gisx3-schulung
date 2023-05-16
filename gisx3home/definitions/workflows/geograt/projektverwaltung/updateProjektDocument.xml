@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://www.geograt.de/namespaces/gisx3/workflowdefinition/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Dokument bearbeiten</title>
+	<icon>edit</icon>
+	<parts>
+		<singleFeatureSelect>
+			<title>Dokument wählen</title>
+			<featureThemes>
+				<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+			</featureThemes>
+			<parts>
+				<update>
+					<steps>
+						<form>
+							<title>Dokument bearbeiten</title>
+							<field>
+								<label>Title</label>
+								<attributeName>title</attributeName>
+							</field>
+							<field>
+								<label>Kategorie</label>
+								<attributeName>category</attributeName>
+							</field>
+							<field>
+								<label>Bemerkung</label>
+								<attributeName>generalNote</attributeName>
+							</field>
+						</form>
+					</steps>
+				</update>
+			</parts>
+		</singleFeatureSelect>
+	</parts>
+	<actions>
+		<refresh />
+	</actions>
+</Workflow>

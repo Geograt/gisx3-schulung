@@ -78,4 +78,112 @@
 			</actions>
 		</form>
 	</component>
+
+
+	<component>
+		<tabCard>
+			<title>Dokumente</title>
+			<component>
+				<table>
+					<title>Alle</title>
+					<spanColumns>2</spanColumns>
+					<filter>e.mainEntityId = :idParameter</filter>
+					<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+					<requestParameter>
+						<name>idParameter</name>
+						<type>
+							<attribute>
+								<attribute>id</attribute>
+							</attribute>
+						</type>
+					</requestParameter>
+					<column>
+						<attributeName>title</attributeName>
+					</column>
+					<column>
+						<attributeName>category</attributeName>
+					</column>
+					<column>
+						<attributeName>generalNote</attributeName>
+					</column>
+					<columnCustomization>false</columnCustomization>
+					<searchable>false</searchable>
+					<viewType>list</viewType>
+					<actions>
+						<click>
+							<href>
+								<attributeName>documentURL</attributeName>
+							</href>
+						</click>
+						<upload>
+							<text>Neues Dokument</text>
+							<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+							<id>
+								<attribute>
+									<attribute>id</attribute>
+								</attribute>
+							</id>
+						</upload>
+						<workflow>
+							<workflowId>geograt.projektverwaltung.updateProjektDocument</workflowId>
+							<preselect>
+								<self />
+							</preselect>
+						</workflow>
+						<delete>
+							<text>Löschen</text>
+							<confirmationPrompt>Willst Du das Dokument löschen?</confirmationPrompt>
+							<messageDeleteSuccessful>Dokument wurde gelöscht.</messageDeleteSuccessful>
+							<messageDeleteFailed>Dokument konnte nicht gelöscht werden.</messageDeleteFailed>
+						</delete>
+					</actions>
+				</table>
+			</component>
+			<component>
+				<imageGallery>
+					<title>Bilder</title>
+					<dynamicContent>
+						<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+						<filter>e.mainEntityId = :idParameter and (lower(e.filePath) like '%.png' or lower(e.filePath) like '%.gif' or lower(e.filePath) like '%.jpg' or lower(e.filePath) like '%.jpeg')</filter>
+						<requestParameter>
+							<name>idParameter</name>
+							<type>
+								<attribute>
+									<attribute>id</attribute>
+								</attribute>
+							</type>
+						</requestParameter>
+						<urlAttributeName>documentURL</urlAttributeName>
+					</dynamicContent>
+				</imageGallery>
+			</component>
+		</tabCard>
+	</component>
+
+	<component>
+		<commentTable>
+			<title>Kommentare</title>
+			<spanColumns>1</spanColumns>
+			<filter>e.mainEntityId = :idParameter</filter>
+			<themeId>gisx3:geograt.projektverwaltung.projektComment</themeId>
+			<requestParameter>
+				<name>idParameter</name>
+				<type>
+					<attribute>
+						<attribute>id</attribute>
+					</attribute>
+				</type>
+			</requestParameter>
+			<actions>
+				<workflow>
+					<workflowId>geograt.projektverwaltung.createProjektComment</workflowId>
+					<preselect>
+						<dashboard />
+					</preselect>
+				</workflow>
+			</actions>
+		</commentTable>
+	</component>
+
+
 </Dialog>

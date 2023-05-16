@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://www.geograt.de/namespaces/gisx3/workflowdefinition/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Neuer Kommentar</title>
+	<icon>add</icon>
+	<parts>
+		<singleFeatureSelect>
+			<partId>projekt</partId>
+			<title>Projekt wählen</title>
+			<featureThemes>
+				<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+			</featureThemes>
+			<parts>
+				<create>
+					<themeId>gisx3:geograt.projektverwaltung.projektComment</themeId>
+					<maxFeatures>1</maxFeatures>
+					<presets>
+						<attribute>
+							<attributeName>mainEntityId</attributeName>
+							<value>
+								<fromFeatureOfPart>projekt</fromFeatureOfPart>
+								<featureAttribute>id</featureAttribute>
+							</value>
+						</attribute>
+					</presets>
+					<steps>
+						<form>
+							<title>Neuer Kommentar</title>
+							<field>
+								<label>Inhalt</label>
+								<attributeName>comment</attributeName>
+							</field>
+						</form>
+					</steps>
+				</create>
+			</parts>
+		</singleFeatureSelect>
+	</parts>
+	<actions>
+		<refresh />
+	</actions>
+</Workflow>

@@ -34,7 +34,28 @@
 			<title>Projektname</title>
 			<content>${textAttribute2}</content>
 		</attribute>
+
+		<subData>
+			<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+			<filter>e.mainEntityId = :idParameter</filter>
+			<filterParameter>
+				<parameterName>idParameter</parameterName>
+				<parameterAttribute>id</parameterAttribute>
+			</filterParameter>
+			<attribute>
+				<content>${title}</content>
+				<extraContent>
+					<link>
+						<href>${documentURL}</href>
+					</link>
+				</extraContent>
+			</attribute>
+			<sortBy>title</sortBy>
+		</subData>
 	</tooltip>
+
+
+
 	<attributeDefinition>
 		<attribute>
 			<name>objectType</name>
