@@ -8,6 +8,10 @@
 			<label>Projekte</label>
 			<theme>gisx3:geograt.projektverwaltung.projekt</theme>
 		</dashboard>
+		<dashboard>
+			<label>Aufgaben</label>
+			<theme>gisx3:geograt.projektverwaltung.aufgabe</theme>
+		</dashboard>
 		<!-- Wenn Du irgendeine statische Seite (Homepage Nutzungsbedingungen einbauen möchtest) -->
 		<!-- <url>
 			<label>Unsere Homepage</label>

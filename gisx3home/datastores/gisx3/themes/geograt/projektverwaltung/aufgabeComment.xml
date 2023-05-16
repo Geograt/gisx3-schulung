@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Kommentare zu Aufgabe (Projektverwaltung)</visibleName>
+	<dataSource>GeneralObjectComment</dataSource>
+	<filter>e.mainEntity.objectType = 'projektverwaltung.aufgabe'</filter>
+
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+		</restrictToRoles>
+	</authorization>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Bearbeitung</roleName>
+		</restrictToRoles>
+	</editable>
+	
+	<searchable>false</searchable>
+</Theme>

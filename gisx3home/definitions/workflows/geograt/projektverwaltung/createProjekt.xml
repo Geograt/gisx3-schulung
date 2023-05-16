@@ -28,45 +28,10 @@
 					<targetAttribute>geometry</targetAttribute>
 				</geometry>
 
-				<form>
+				<referencedForm>
 					<title>Daten zum Projekt</title>
-					<description>Gib bitte Daten zum Projekt ein.</description>
-					<field>
-						<label>Projektnummer</label>
-						<attributeName>visibleId</attributeName>
-					</field>
-					<field>
-						<label>Projektstatus</label>
-						<attributeName>textAttribute1</attributeName>
-					</field>
-					<field>
-						<label>Projektname</label>
-						<attributeName>textAttribute2</attributeName>
-					</field>
-					<field>
-						<label>Verantwortlicher</label>
-						<attributeName>textAttribute3</attributeName>
-					</field>
-					<field>
-						<label>Budget</label>
-						<attributeName>doubleAttribute1</attributeName>
-					</field>
-					<field>
-						<label>Beschreibung</label>
-						<attributeName>textAttribute4</attributeName>
-					</field>
-					<field>
-						<label>Fachbereich</label>
-						<attributeName>multiSelectAttribute1</attributeName>
-					</field>
-					<field>
-						<label>Durchführungszeitraum</label>
-						<dateRange>
-							<startAttributeName>dateAttribute1</startAttributeName>
-							<endAttributeName>dateAttribute2</endAttributeName>
-						</dateRange>
-					</field>
-				</form>
+					<formId>geograt.projektverwaltung.form-projekt</formId>
+				</referencedForm>
 			</steps>
 		</create>
 	</parts>

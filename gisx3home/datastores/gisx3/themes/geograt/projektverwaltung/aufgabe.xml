@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Aufgabe (Projektverwaltung)</visibleName>
+	<dataSource>GeneralObject</dataSource>
+	<filter>e.objectType = 'projektverwaltung.aufgabe'</filter>
+
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+		</restrictToRoles>
+	</authorization>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Bearbeitung</roleName>
+		</restrictToRoles>
+	</editable>
+
+
+	<attributeDefinition>
+		<attribute>
+			<name>objectType</name>
+			<constantValue>projektverwaltung.aufgabe</constantValue>
+			<protection>noupdate</protection>
+		</attribute>
+
+		<attribute>
+			<name>parentId</name>
+			<visibleName>ID Projekt</visibleName>
+			<required>true</required>
+		</attribute>
+
+		<attribute>
+			<name>textAttribute1</name>
+			<visibleName>Aufgabenstatus</visibleName>
+			<valueList sorted="false">
+				<value>
+					<key>Offen</key>
+					<namedColor>red</namedColor>
+				</value>
+				<value>
+					<key>In_Arbeit</key>
+					<value>In Arbeit</value>
+					<namedColor>green</namedColor>
+				</value>
+				<value>
+					<key>Erledigt</key>
+					<namedColor>blue</namedColor>
+				</value>
+			</valueList>
+			<required>true</required>
+			<defaultValue>Offen</defaultValue>
+			<shortName>Status</shortName>
+		</attribute>
+
+		<attribute>
+			<name>textAttribute2</name>
+			<visibleName>Zusammenfassung</visibleName>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>textAttribute3</name>
+			<visibleName>Bearbeiter</visibleName>
+			<existingTable>
+				<provider>users</provider>
+				<table>allUsers</table>
+			</existingTable>
+		</attribute>
+
+		<attribute>
+			<name>textAttribute4</name>
+			<visibleName>Beschreibung</visibleName>
+			<multiline>true</multiline>
+		</attribute>
+		<attribute>
+			<name>dateAttribute1</name>
+			<visibleName>Fällig bis</visibleName>
+		</attribute>
+
+
+		<include>
+			<from>geograt.projektverwaltung.projekt</from>
+			<includeIf>
+				<nameStartsWith />
+			</includeIf>
+			<withPrefix>parent.</withPrefix>
+			<groupNames>
+				<name>Projekt</name>
+			</groupNames>
+		</include>
+
+	</attributeDefinition>
+
+	<searchable>false</searchable>
+
+	<defaultDialog>geograt.projektverwaltung.dlg-aufgabe</defaultDialog>
+	<overviewDialog>geograt.projektverwaltung.dlg-aufgabe-overview</overviewDialog>
+</Theme>

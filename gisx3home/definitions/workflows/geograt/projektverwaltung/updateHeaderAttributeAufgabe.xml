@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://www.geograt.de/namespaces/gisx3/workflowdefinition/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Aufgabenhauptdaten bearbeiten</title>
+	<icon>edit</icon>
+	<parts>
+		<singleFeatureSelect>
+			<title>Aufgabe wählen</title>
+			<featureThemes>
+				<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
+			</featureThemes>
+			<parts>
+				<update>
+					<steps>
+						<form>
+							<title>Daten zum Aufgabe</title>
+							<description>Gib bitte Daten zur Aufgabe ein.</description>
+							<field>
+								<label>Zusammenfassung</label>
+								<attributeName>textAttribute2</attributeName>
+							</field>
+							<field>
+								<label>Status</label>
+								<attributeName>textAttribute1</attributeName>
+							</field>
+							<field>
+								<label>Bearbeiter</label>
+								<attributeName>textAttribute3</attributeName>
+							</field>
+							<field>
+								<label>Fällig bis</label>
+								<attributeName>dateAttribute1</attributeName>
+							</field>
+						</form>
+					</steps>
+				</update>
+			</parts>
+		</singleFeatureSelect>
+	</parts>
+	<actions>
+		<refresh />
+	</actions>
+</Workflow>

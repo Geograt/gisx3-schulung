@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dialog xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Projektverwaltung - Aufgaben</title>
+	<component>
+		<table>
+			<title>Projektverwaltung - Aufgaben</title>
+			<spanColumns>4</spanColumns>
+			<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
+			<column>
+				<title>Projektnummer</title>
+				<attributeName>parent.visibleId</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute1</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute2</attributeName>
+			</column>
+			<column>
+				<attributeName>textAttribute3</attributeName>
+			</column>
+			<column>
+				<attributeName>dateAttribute1</attributeName>
+			</column>
+			<fullscreen>true</fullscreen>
+			<actions>
+				<click />
+				<workflow>
+					<text>Bearbeiten</text>
+					<workflowId>geograt.projektverwaltung.updateHeaderAttributeAufgabe</workflowId>
+					<preselect>
+						<self/>
+					</preselect>
+				</workflow>
+				<workflow>
+					<workflowId>geograt.projektverwaltung.updateStatusAufgabe</workflowId>
+					<preselect>
+						<self/>
+					</preselect>
+				</workflow>
+				<delete>
+					<text>Löschen</text>
+					<confirmationPrompt>Willst Du die Aufgabe wirklich löschen?</confirmationPrompt>
+					<messageDeleteSuccessful>Aufgabe wurde gelöscht.</messageDeleteSuccessful>
+					<messageDeleteFailed>Aufgabe konnte nicht gelöscht werden.</messageDeleteFailed>
+				</delete>
+				<export>
+					<text>Export nach Excel</text>
+					<exportFormat>xlsx</exportFormat>
+				</export>
+			</actions>
+		</table>
+	</component>
+</Dialog>

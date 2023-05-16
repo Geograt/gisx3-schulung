@@ -7,6 +7,7 @@
 			<title>Dokument wählen</title>
 			<featureThemes>
 				<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+				<themeId>gisx3:geograt.projektverwaltung.aufgabeDocument</themeId>
 			</featureThemes>
 			<parts>
 				<update>

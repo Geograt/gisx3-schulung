@@ -111,7 +111,6 @@
 		<attribute>
 			<name>doubleAttribute1</name>
 			<visibleName>Budget</visibleName>
-			<unitLabel>€</unitLabel>
 			<format>currency</format>
 			<validationRules>
 				<min>

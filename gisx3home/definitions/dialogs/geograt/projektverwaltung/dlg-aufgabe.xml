@@ -2,75 +2,72 @@
 <Dialog xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<header>
 		<headline>
-			<overline>Projektnummer</overline>
-			<attributeName>visibleId</attributeName>
+			<overline>Aufgabe</overline>
+			<attributeName>textAttribute2</attributeName>
 			<actions>
-				<showMap>
-					<mapId>geograt.projektverwaltung.map</mapId>
-				</showMap>
 				<workflow>
 					<text>Bearbeiten</text>
-					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
-					<preselect>
-						<dashboard />
-					</preselect>
-				</workflow>
-				<workflow>
-					<workflowId>geograt.projektverwaltung.updateGeometrieProjekt</workflowId>
+					<workflowId>geograt.projektverwaltung.updateHeaderAttributeAufgabe</workflowId>
 					<preselect>
 						<dashboard />
 					</preselect>
 				</workflow>
 				<delete>
 					<text>Löschen</text>
-					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
-					<messageDeleteSuccessful>Projekt wurde gelöscht.</messageDeleteSuccessful>
-					<messageDeleteFailed>Projekt konnte nicht gelöscht werden.</messageDeleteFailed>
+					<confirmationPrompt>Möchtest Du die Aufgabe löschen?</confirmationPrompt>
+					<messageDeleteSuccessful>Aufgabe wurde gelöscht.</messageDeleteSuccessful>
+					<messageDeleteFailed>Aufgabe konnte nicht gelöscht werden.</messageDeleteFailed>
 					<themeAfterDelete>
 						<constant>
 							<value>gisx3:geograt.projektverwaltung.projekt</value>
 						</constant>
 					</themeAfterDelete>
+					<idAfterDelete>
+						<attribute>
+							<attribute>parentId</attribute>
+						</attribute>
+					</idAfterDelete>
 				</delete>
 			</actions>
 		</headline>
 		<highlights>
-			<name>Projektstatus</name>
+			<name>Projektnummer</name>
+			<attributeName>parent.visibleId</attributeName>
+			<href>
+				<dashboard>
+					<theme>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</theme>
+					<id>
+						<attribute>
+							<attribute>parentId</attribute>
+						</attribute>
+					</id>
+				</dashboard>
+			</href>
+		</highlights>
+		<highlights>
+			<name>Status</name>
 			<attributeName>textAttribute1</attributeName>
 		</highlights>
 		<highlights>
-			<name>Projektname</name>
-			<attributeName>textAttribute2</attributeName>
-		</highlights>
-		<highlights>
-			<name>Verantwortlicher</name>
+			<name>Bearbeiter</name>
 			<attributeName>textAttribute3</attributeName>
 		</highlights>
 		<highlights>
-			<name>Budget</name>
-			<attributeName>doubleAttribute1</attributeName>
+			<name>Fällig bis</name>
+			<attributeName>dateAttribute1</attributeName>
 		</highlights>
 	</header>
 	<component>
 		<form>
-			<title>Angaben zum Projekt</title>
+			<title>Details zur Aufgabe</title>
 			<content>
 				<field>
 					<name>Beschreibung</name>
 					<attributeName>textAttribute4</attributeName>
-				</field>
-				<field>
-					<name>Durchführungszeitraum</name>
-					<content>
-						<dateRange>
-							<startAttributeName>dateAttribute1</startAttributeName>
-							<endAttributeName>dateAttribute2</endAttributeName>
-						</dateRange>
-					</content>
-				</field>
-				<field>
-					<name>Fachbereich</name>
-					<attributeName>multiSelectAttribute1</attributeName>
 				</field>
 			</content>
 			<actions>
@@ -78,68 +75,26 @@
 			</actions>
 		</form>
 	</component>
-
 	<component>
-		<table>
-			<title>Aufgaben</title>
-			<spanColumns>3</spanColumns>
-			<filter>e.parentId = :idParameter</filter>
-			<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
-			<requestParameter>
-				<name>idParameter</name>
-				<type>
-					<attribute>
-						<attribute>id</attribute>
-					</attribute>
-				</type>
-			</requestParameter>
-			<column>
-				<attributeName>textAttribute2</attributeName>
-			</column>
-			<column>
-				<attributeName>textAttribute1</attributeName>
-			</column>
-			<column>
-				<!-- Veraltete Form -->
-				<title>Bearbeiter</title>
-				<content>
-					<featureAttribute>
-						<name>textAttribute3</name>
-					</featureAttribute>
-				</content>
-			</column>
-			<column>
-				<attributeName>dateAttribute1</attributeName>
-			</column>
+		<referencedForm>
+			<title>Details zum Projekt</title>
+			<formId>geograt.projektverwaltung.form-projekt</formId>
+			<requestId>
+				<attribute>
+					<attribute>parentId</attribute>
+				</attribute>
+			</requestId>
+			<requestTheme>
+				<constant>
+					<value>gisx3:geograt.projektverwaltung.projekt</value>
+				</constant>
+			</requestTheme>
 			<actions>
-				<click />
-				<workflow>
-					<workflowId>geograt.projektverwaltung.createAufgabe</workflowId>
-					<preselect>
-						<dashboard />
-					</preselect>
-				</workflow>
-				<workflow>
-					<text>Bearbeiten</text>
-					<workflowId>geograt.projektverwaltung.updateHeaderAttributeAufgabe</workflowId>
-					<preselect>
-						<self/>
-					</preselect>
-				</workflow>
-				<workflow>
-					<workflowId>geograt.projektverwaltung.updateStatusAufgabe</workflowId>
-					<preselect>
-						<self/>
-					</preselect>
-				</workflow>
-				<delete>
-					<text>Löschen</text>
-					<confirmationPrompt>Willst Du die Aufgabe wirklich löschen?</confirmationPrompt>
-					<messageDeleteSuccessful>Aufgabe wurde gelöscht.</messageDeleteSuccessful>
-					<messageDeleteFailed>Aufgabe konnte nicht gelöscht werden.</messageDeleteFailed>
-				</delete>
+				<showMap>
+					<mapId>geograt.projektverwaltung.map</mapId>
+				</showMap>
 			</actions>
-		</table>
+		</referencedForm>
 	</component>
 
 	<component>
@@ -150,7 +105,7 @@
 					<title>Alle</title>
 					<spanColumns>2</spanColumns>
 					<filter>e.mainEntityId = :idParameter</filter>
-					<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+					<themeId>gisx3:geograt.projektverwaltung.aufgabeDocument</themeId>
 					<requestParameter>
 						<name>idParameter</name>
 						<type>
@@ -179,7 +134,7 @@
 						</click>
 						<upload>
 							<text>Neues Dokument</text>
-							<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+							<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
 							<id>
 								<attribute>
 									<attribute>id</attribute>
@@ -205,7 +160,7 @@
 				<imageGallery>
 					<title>Bilder</title>
 					<dynamicContent>
-						<themeId>gisx3:geograt.projektverwaltung.projektDocument</themeId>
+						<themeId>gisx3:geograt.projektverwaltung.aufgabeDocument</themeId>
 						<filter>e.mainEntityId = :idParameter and (lower(e.filePath) like '%.png' or lower(e.filePath) like '%.gif' or lower(e.filePath) like '%.jpg' or lower(e.filePath) like '%.jpeg')</filter>
 						<requestParameter>
 							<name>idParameter</name>
@@ -227,7 +182,7 @@
 			<title>Kommentare</title>
 			<spanColumns>1</spanColumns>
 			<filter>e.mainEntityId = :idParameter</filter>
-			<themeId>gisx3:geograt.projektverwaltung.projektComment</themeId>
+			<themeId>gisx3:geograt.projektverwaltung.aufgabeComment</themeId>
 			<requestParameter>
 				<name>idParameter</name>
 				<type>
@@ -238,7 +193,7 @@
 			</requestParameter>
 			<actions>
 				<workflow>
-					<workflowId>geograt.projektverwaltung.createProjektComment</workflowId>
+					<workflowId>geograt.projektverwaltung.createAufgabeComment</workflowId>
 					<preselect>
 						<dashboard />
 					</preselect>
@@ -246,6 +201,4 @@
 			</actions>
 		</commentTable>
 	</component>
-
-
 </Dialog>
