@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Kanalhaltung</visibleName>
+	<ignore>false</ignore>
+	<dataSource>SewerEdge</dataSource>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_EDIT_GISX2_Sewer</roleName>
+		</restrictToRoles>
+	</editable>
+	<tooltip>
+		<title>Kanalhaltung</title>
+		<menu>
+			<dashboard>
+				<label>Details anzeigen</label>
+				<themeId>gisx2:sewer.sewer-edge</themeId>
+			</dashboard>
+		</menu>
+		<attribute>
+			<title>Haltungsnummer</title>
+			<content>${id}</content>
+		</attribute>
+		<attribute>
+			<title>Kanalart</title>
+			<content>${usage}</content>
+		</attribute>
+		<attribute>
+			<title>Ort</title>
+			<content>${town}</content>
+		</attribute>
+		<attribute>
+			<title>Straße</title>
+			<content>${road} ${houseNumber}</content>
+		</attribute>
+		<attribute>
+			<title><![CDATA[
+			<#if .data_model["construction->dataValue"] == "0"  || .data_model["construction->dataValue"] == "4" || .data_model["construction->dataValue"] == "10">
+				Breite (DN)
+			<#else>
+				Breite x Höhe
+			</#if>
+			]]></title>
+			<content><![CDATA[
+			<#if .data_model["construction->dataValue"] == "0"  || .data_model["construction->dataValue"] == "4" || .data_model["construction->dataValue"] == "10">
+				${width} mm
+			<#else>
+				${width} x ${height} mm
+			</#if>
+			]]></content>
+		</attribute>
+		
+		<!-- Beginn Anpassung -->
+		<attribute>
+			<title>Kostenstelle</title>
+			<content>${userAttributes\.textAttribute1}</content>
+		</attribute>
+		<!-- Ende Anpassung -->
+		
+		<subData>
+			<title>Zugeordnete Dokumente</title>
+			<themeId>gisx2:document.document</themeId>
+			<filter>e.id.project=:project and e.id.id=:id and e.id.table='E0102'</filter>
+			<filterParameter>
+				<parameterName>project</parameterName>
+				<parameterAttribute>project</parameterAttribute>
+			</filterParameter>
+			<filterParameter>
+				<parameterName>id</parameterName>
+				<parameterAttribute>id</parameterAttribute>
+			</filterParameter>
+			<attribute>
+				<content>${documentInfoText}</content>
+				<extraContent>
+					<link>
+						<href>${documentURL}</href>
+					</link>
+				</extraContent>
+			</attribute>
+			<sortBy>document.title ASC</sortBy>
+		</subData>
+		<subData>
+			<title>Aktuelle Inspektionsvideos</title>
+			<themeId>gisx2:sewer.inspection.sewer-edge-inspection</themeId>
+			<filter>e.id.project = :proj and e.edgeInspectionData.mainObjectId = :id and e.coreData.inspectionStatus = 200</filter>
+			<filterParameter>
+				<parameterName>proj</parameterName>
+				<parameterAttribute>project</parameterAttribute>
+			</filterParameter>
+			<filterParameter>
+				<parameterName>id</parameterName>
+				<parameterAttribute>id</parameterAttribute>
+			</filterParameter>
+			<attribute>
+				<content>${videoFile}</content>
+				<extraContent>
+					<link>
+						<href>${videoURL}</href>
+					</link>
+				</extraContent>
+			</attribute>
+			<sortBy>videoFile ASC</sortBy>
+		</subData>
+	</tooltip>
+	<searchable>true</searchable>
+	<searchAttributes>
+		<name>id.id</name>
+		<name>usage</name>
+		<name>location.town</name>
+		<name>location.road</name>
+		<name>location.houseNumber</name>
+	</searchAttributes>
+	<searchOutput>Kanalhaltung: ${id}, ${town}, ${road} ${houseNumber}</searchOutput>
+	<cache>true</cache>
+	<defaultDialog>gisx2.sewer.dlg-sewer-edge</defaultDialog>
+	<overviewDialog>gisx2.sewer.dlg-sewer-edge-overview</overviewDialog>
+
+	<!-- Beginn Anpassungen -->
+	<attributeDefinition>
+		<attribute>
+			<name>userAttributes.textAttribute1</name>
+			<visibleName>Kostenstelle</visibleName>
+		</attribute>
+	</attributeDefinition>
+</Theme>

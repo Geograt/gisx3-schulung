@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Kanalbauwerk</visibleName>
+	<ignore>false</ignore>
+	<dataSource>SewerNode</dataSource>
+	<editable>
+		<restrictToRoles>
+			<roleName>ROLE_EDIT_GISX2_Sewer</roleName>
+		</restrictToRoles>
+	</editable>
+	<tooltip>
+		<title>Kanalbauwerk</title>
+		<menu>
+			<dashboard>
+				<label>Details anzeigen</label>
+			</dashboard>
+		</menu>
+		<attribute>
+			<title>Schacht-Nr.</title>
+			<content>${id}</content>
+		</attribute>
+		<attribute>
+			<title>Kanalart</title>
+			<content>${usage}</content>
+		</attribute>
+		<attribute>
+			<title>Ort</title>
+			<content>${town}</content>
+		</attribute>
+		<attribute>
+			<title>Straße</title>
+			<content>${road} ${houseNumber}</content>
+		</attribute>
+		
+		<!-- Beginn Anpassung -->
+		<attribute>
+			<title>Kostenstelle</title>
+			<content>${userAttributes\.textAttribute1}</content>
+		</attribute>
+		<!-- Ende Anpassung -->
+		
+		<subData>
+			<title>Zugeordnete Dokumente</title>
+			<themeId>gisx2:document.document</themeId>
+			<filter>e.id.project=:project and e.id.id=:id and e.id.table='E0101'</filter>
+			<filterParameter>
+				<parameterName>project</parameterName>
+				<parameterAttribute>project</parameterAttribute>
+			</filterParameter>
+			<filterParameter>
+				<parameterName>id</parameterName>
+				<parameterAttribute>id</parameterAttribute>
+			</filterParameter>
+			<attribute>
+				<content>${documentInfoText}</content>
+				<extraContent>
+					<link>
+						<href>${documentURL}</href>
+					</link>
+				</extraContent>
+			</attribute>
+			<sortBy>document.title ASC</sortBy>
+		</subData>
+		<subData>
+			<title>Aktuelle Inspektionsvideos</title>
+			<themeId>gisx2:sewer.inspection.sewer-node-inspection</themeId>
+			<filter>e.id.project = :proj and e.nodeInspectionData.mainObjectId = :id and e.coreData.inspectionStatus = 200</filter>
+			<filterParameter>
+				<parameterName>proj</parameterName>
+				<parameterAttribute>project</parameterAttribute>
+			</filterParameter>
+			<filterParameter>
+				<parameterName>id</parameterName>
+				<parameterAttribute>id</parameterAttribute>
+			</filterParameter>
+			<attribute>
+				<content>${videoFile}</content>
+				<extraContent>
+					<link>
+						<href>${videoURL}</href>
+					</link>
+				</extraContent>
+			</attribute>
+			<sortBy>videoFile ASC</sortBy>
+		</subData>
+	</tooltip>
+	<searchable>true</searchable>
+	<searchAttributes>
+		<name>id.id</name>
+		<name>usage</name>
+		<name>location.town</name>
+		<name>location.road</name>
+		<name>location.houseNumber</name>
+	</searchAttributes>
+	<searchOutput>Kanalbauwerk: ${id}, ${town}, ${road} ${houseNumber}</searchOutput>
+	<cache>true</cache>
+	<defaultDialog>gisx2.sewer.dlg-sewer-node</defaultDialog>
+	<overviewDialog>gisx2.sewer.dlg-sewer-node-overview</overviewDialog>
+	
+	<!-- Beginn Anpassung -->
+	<attributeDefinition>
+		<attribute>
+			<name>userAttributes.textAttribute1</name>
+			<visibleName>Kostenstelle</visibleName>
+		</attribute>
+	</attributeDefinition>
+</Theme>

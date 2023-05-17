@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Schacht</title>
+	<content>
+		<field>
+			<name>Projekt</name>
+			<content>
+				<featureAttribute>
+					<name>project</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Schachtnummer</name>
+			<content>
+				<featureAttribute>
+					<name>id</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Status</name>
+			<content>
+				<featureAttribute>
+					<name>statusISYBAU</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>alte Schachtnummer</name>
+			<content>
+				<featureAttribute>
+					<name>oldName</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Strang</name>
+			<content>
+				<featureAttribute>
+					<name>drainageLine</name>
+				</featureAttribute>
+			</content>
+		</field>
+		
+		<!-- Beginn Anpassung -->
+		<field>
+			<name>Kostenstelle</name>
+			<attributeName>userAttributes.textAttribute1</attributeName>
+		</field>
+		<!-- Ende Anpassung -->
+	</content>
+</Form>

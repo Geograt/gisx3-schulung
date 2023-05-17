@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Kanalhaltung</title>
+	<content>
+		<field>
+			<name>Projekt</name>
+			<content>
+				<featureAttribute>
+					<name>project</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Haltungsnummer</name>
+			<content>
+				<featureAttribute>
+					<name>id</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Status</name>
+			<content>
+				<featureAttribute>
+					<name>status</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>alte Haltungsnummer</name>
+			<content>
+				<featureAttribute>
+					<name>oldName</name>
+				</featureAttribute>
+			</content>
+		</field>
+		<field>
+			<name>Strang</name>
+			<content>
+				<featureAttribute>
+					<name>pipeline</name>
+				</featureAttribute>
+			</content>
+		</field>
+		
+		<!-- Beginn Anpassung -->
+		<field>
+			<name>Kostenstelle</name>
+			<attributeName>userAttributes.textAttribute1</attributeName>
+		</field>
+		<!-- Ende Anpassung -->
+	</content>
+</Form>
