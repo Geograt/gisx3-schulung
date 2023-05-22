@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FeatureEvent xmlns="http://www.geograt.de/namespaces/gisx3/triggerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<enabled>true</enabled>
+	<name>Zuweisung Projektnummer bei einem neuen Projekt.</name>
+	<themeId>gisx3:geograt.projektverwaltung.projekt</themeId>
+	<event>featureCreate</event>
+	<commands>
+		<update>
+			<partId>update</partId>
+			<themeId>gisx3:GeneralObject</themeId>
+			<featureId>
+				<attVal part="_new">id</attVal>
+			</featureId>
+			<presets>
+				<single attributeName="visibleId">
+					<sequence>
+						<providerId>gisx3</providerId>
+						<sequenceId>geograt.projektverwaltung.projektnr</sequenceId>
+					</sequence>
+				</single>
+			</presets>
+		</update>
+	</commands>
+</FeatureEvent>

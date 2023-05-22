@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FeatureEvent xmlns="http://www.geograt.de/namespaces/gisx3/triggerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<enabled>true</enabled>
+	<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
+	<event>featureCreate</event>
+	<event>featureUpdate</event>
+	<!-- ((Wenn CREATE und Bearbeiter ist NICHT leer) ODER (Wenn UPDATE und Bearbeiter ist NICHT leer und Wert für Bearbeiter hat sich geändert)) UND EMAILS gesendet werden können! -->
+	<if>
+		<and>
+			<or>
+				<and>
+					<triggerEvent>
+						<is>featureCreate</is>
+					</triggerEvent>
+					<isNotNull>
+						<attVal part="_new">textAttribute3</attVal>
+					</isNotNull>
+				</and>
+				<and>
+					<triggerEvent>
+						<is>featureUpdate</is>
+					</triggerEvent>
+					<cql>
+						<expression><![CDATA[
+						"_new.textAttribute3" is not null and
+						"_new.textAttribute3" <> "_old.textAttribute3"
+					]]></expression>
+					</cql>
+				</and>
+			</or>
+			<mailServiceAvailable />
+		</and>
+	</if>
+	<commands>
+		<log>
+			<value>
+				<constant>
+					<string>GEHT</string>
+				</constant>
+			</value>
+		</log>
+
+		<!-- Eigentlich unnötig, dient nur um den Umgang mit Parts zu zeigen. -->
+		<getFeature>
+			<partId>aufgabe</partId>
+			<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
+			<featureId>
+				<attVal part="_new">id</attVal>
+			</featureId>
+		</getFeature>
+
+		<invokeProcedure>
+			<partId>sendMail</partId>
+			<procedureId>commons.email.sendEMailToUser</procedureId>
+			<async>true</async>
+			<parameters>
+				<single attributeName="username">
+					<attVal part="aufgabe">textAttribute3</attVal>
+				</single>
+				<single attributeName="subject">
+					<constant>
+						<string>Aufgabe zugewiesen</string>
+					</constant>
+				</single>
+				<single attributeName="body">
+					<expression><![CDATA[
+						<p>Ihnen wurde die Aufgabe ${aufgabe.textAttribute2} zugewiesen. Viel Spaß damit.</p>
+					]]></expression>
+				</single>
+			</parameters>
+		</invokeProcedure>
+
+	</commands>
+</FeatureEvent>

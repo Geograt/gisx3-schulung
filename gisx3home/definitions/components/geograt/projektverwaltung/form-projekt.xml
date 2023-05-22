@@ -3,6 +3,10 @@
 	<title>Daten zum Projekt</title>
 	<content>
 		<field>
+			<!-- Sorgt dafür, dass dieses Feld bei Create Aktionen nicht angezeigt wird, ansonsten schon -->
+			<profiles>
+				<profileName>!create</profileName>
+			</profiles>
 			<name>Projektnummer</name>
 			<attributeName>visibleId</attributeName>
 			<href>
