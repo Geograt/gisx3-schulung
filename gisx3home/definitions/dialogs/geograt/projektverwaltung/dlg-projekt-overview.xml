@@ -47,6 +47,25 @@
 						</self>
 					</elementId>
 				</showReport>
+				<showReport>
+					<text>Projektübersicht</text>
+					<icon>file-chart</icon>
+					<displayConditions>
+						<selectionCondition>none</selectionCondition>
+					</displayConditions>
+					<reportFormat>jrpdf</reportFormat>
+					<reportId>geograt.PROJEKTVERWALTUNG.projektuebersicht</reportId>
+					<elementTheme>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</elementTheme>
+					<elementId>
+						<constant>
+							<value>dummy</value>
+						</constant>
+					</elementId>
+				</showReport>
 				<delete>
 					<text>Löschen</text>
 					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>

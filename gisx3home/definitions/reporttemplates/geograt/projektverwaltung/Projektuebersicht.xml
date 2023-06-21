@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportMetadata xmlns="http://www.geograt.de/namespaces/gisx3/reportdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<fileTitle><![CDATA[Projektübersicht]]></fileTitle>
+	<authorization>
+		<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+	</authorization>
+</ReportMetadata>
