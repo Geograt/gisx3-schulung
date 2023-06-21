@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportMetadata xmlns="http://www.geograt.de/namespaces/gisx3/reportdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<fileTitle><![CDATA[Projektbericht ${visibleId}]]></fileTitle>
+	<insertMap>
+		<bookmarkName>karte</bookmarkName>
+		<width unit="cm">16.0</width>
+		<height unit="cm">12.61</height>
+		<outputDPI>300</outputDPI>
+		<scaleFactor>0.5</scaleFactor>
+		<fileType>png</fileType>
+		<mapId>geograt.projektverwaltung.bericht</mapId>
+		<ignoreFillStyles>true</ignoreFillStyles>
+		<fillMarkerPolygons>true</fillMarkerPolygons>
+		
+	</insertMap>
+</ReportMetadata>

@@ -28,9 +28,25 @@
 					<text>Bearbeiten</text>
 					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
 					<preselect>
-						<self/>
+						<self />
 					</preselect>
 				</workflow>
+				<showReport>
+					<text>Projektbericht</text>
+					<icon>file-chart</icon>
+					<reportFormat>pdf</reportFormat>
+					<reportId>geograt.PROJEKTVERWALTUNG.projekt</reportId>
+					<elementTheme>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</elementTheme>
+					<elementId>
+						<self>
+							<attribute>id</attribute>
+						</self>
+					</elementId>
+				</showReport>
 				<delete>
 					<text>Löschen</text>
 					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>

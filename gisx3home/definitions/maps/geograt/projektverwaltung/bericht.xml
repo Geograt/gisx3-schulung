@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Map xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<name>Projektverwaltung - Berichtsausgabe</name>
+	<baseLayers>
+		<ref>commons.baselayer</ref>
+	</baseLayers>
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+		</restrictToRoles>
+	</authorization>
+	<hidden>true</hidden>
+	<layers>
+		<group>
+			<visibleName>Vordergrundlayer</visibleName>
+			<layer>
+				<vector>
+					<visibleName>Projekt</visibleName>
+					<minZoom>14</minZoom>
+					<drawOrder>-100</drawOrder>
+					<dataStore>gisx3</dataStore>
+					<dataSource>geograt.projektverwaltung.projekt</dataSource>
+					<type>UntiledVector</type>
+					<showTooltip>true</showTooltip>
+					<fillStyle>
+						<color>
+							<layerValue>
+								<rgbColor>
+									<red>0</red>
+									<green>0</green>
+									<blue>0</blue>
+									<alpha>100</alpha>
+								</rgbColor>
+							</layerValue>
+						</color>
+					</fillStyle>
+					<lineStyle template="geograt.projektverwaltung.projektLineStyle">
+						<color>
+							<layerValue>
+								<rgbColor>
+									<red>0</red>
+									<green>0</green>
+									<blue>0</blue>
+									<alpha>100</alpha>
+								</rgbColor>
+							</layerValue>
+						</color>
+					</lineStyle>
+				</vector>
+			</layer>
+			<layer>
+				<ref>geograt.alkis.amtliche-grundkarte</ref>
+			</layer>
+		</group>
+	</layers>
+</Map>

@@ -21,6 +21,22 @@
 						<dashboard />
 					</preselect>
 				</workflow>
+				<showReport>
+					<text>Projektbericht</text>
+					<icon>file-chart</icon>
+					<reportFormat>pdf</reportFormat>
+					<reportId>geograt.PROJEKTVERWALTUNG.projekt</reportId>
+					<elementTheme>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</elementTheme>
+					<elementId>
+						<attribute>
+							<attribute>id</attribute>
+						</attribute>
+					</elementId>
+				</showReport>
 				<delete>
 					<text>Löschen</text>
 					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
@@ -123,13 +139,13 @@
 					<text>Bearbeiten</text>
 					<workflowId>geograt.projektverwaltung.updateHeaderAttributeAufgabe</workflowId>
 					<preselect>
-						<self/>
+						<self />
 					</preselect>
 				</workflow>
 				<workflow>
 					<workflowId>geograt.projektverwaltung.updateStatusAufgabe</workflowId>
 					<preselect>
-						<self/>
+						<self />
 					</preselect>
 				</workflow>
 				<delete>
