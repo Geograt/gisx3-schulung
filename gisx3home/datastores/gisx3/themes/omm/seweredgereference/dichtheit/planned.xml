@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Dichtheitsprüfung (geplant)</visibleName>
+	<dataSource>omm.seweredgereference.dichtheit.planned</dataSource>
+	<tooltip>
+		<title>${visibleTaskTypeName} - ${status}</title>
+		<menu>
+			<workflow>
+				<label>Quittieren</label>
+				<workflowId>omm.seweredgereference.dichtheit.completePlannedTask</workflowId>
+			</workflow>
+			<dashboard>
+				<label>Details anzeigen</label>
+			</dashboard>
+		</menu>
+		<attribute>
+			<title>Haltung</title>
+			<content>${humanReadableId}</content>
+		</attribute>
+		<attribute>
+			<title>Beschreibung</title>
+			<content>${description}</content>
+		</attribute>
+		<attribute>
+			<title>Fällig bis</title>
+			<content><![CDATA[
+                        <#assign statusInternal>${.data_model["status->dataValue"]}</#assign>
+                        <#if statusInternal == 'PLANNED' && nextDueDate?has_content>${nextDueDate.val?date}</#if>
+                        ]]></content>
+		</attribute>
+		<attribute>
+			<title>Durchgeführt am</title>
+			<content><![CDATA[
+                                <#assign statusInternal>${.data_model["status->dataValue"]}</#assign>
+                                <#if statusInternal == 'DONE' && completionTimeStamp?has_content>${completionTimeStamp.val?date}</#if>
+                        ]]></content>
+		</attribute>
+		<attribute>
+			<title>Durchgeführt von</title>
+			<content><![CDATA[
+                                <#assign statusInternal>${.data_model["status->dataValue"]}</#assign>
+                                <#if statusInternal == 'DONE'>${completionUserId}</#if>
+                        ]]></content>
+		</attribute>
+		<attribute>
+			<title>Adresse</title>
+			<content><![CDATA[
+                        ${town}<#if town?has_content>, </#if>${road} ${houseNumber}
+                        ]]></content>
+		</attribute>
+		<attribute>
+			<title>Kostenstelle</title>
+			<content>${entity\.userAttribute_textAttribute1}</content>
+		</attribute>
+	</tooltip>
+</Theme>
+

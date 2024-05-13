@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Dichtheitsprüfung  (Nicht geplant)</visibleName>
+	<dataSource>omm.seweredgereference.dichtheit.notPlanned</dataSource>
+	<tooltip>
+		<title>Dichtheitsprüfung (Nicht geplant)</title>
+		<menu>
+			<workflow>
+				<label>Dichtheitsprüfung dokumentieren</label>
+				<workflowId>omm.seweredgereference.dichtheit.createCompleted</workflowId>
+			</workflow>
+			<workflow>
+				<label>Dichtheitsprüfung planen</label>
+				<workflowId>omm.seweredgereference.dichtheit.createPlanned</workflowId>
+			</workflow>
+			<dashboard>
+				<label>Details anzeigen</label>
+				<themeId>gisx2:seweredgereference</themeId>
+			</dashboard>
+		</menu>
+		<attribute>
+			<title>Haltung</title>
+			<content>${humanReadableIdForOMM}</content>
+		</attribute>
+		<attribute>
+			<title>Nutzung</title>
+			<content>${usageForOMM}</content>
+		</attribute>
+		<attribute>
+			<title>Typ</title>
+			<content>${classificationForOMM}</content>
+		</attribute>
+		<attribute>
+			<title>Ort</title>
+			<content>${townForOMM}</content>
+		</attribute>
+		<attribute>
+			<title>Straße</title>
+			<content>${roadForOMM} ${houseNumberForOMM}</content>
+		</attribute>
+		<attribute>
+			<title>Kostenstelle</title>
+			<content>${userAttribute_textAttribute1}</content>
+		</attribute>
+	</tooltip>
+</Theme>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Table xmlns="http://www.geograt.de/namespaces/gisx3/dialogdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<title>Dichtheitsprüfung (Geplant)</title>
+	<filter>e.entity.gisx2Id.project = :project and e.entity.gisx2Id.id = :id</filter>
+	<themeId>gisx3:omm.seweredgereference.dichtheit.planned</themeId>
+	<column>
+		<title>Fällig am</title>
+		<content>
+			<featureAttribute>
+				<name>nextDueDate</name>
+			</featureAttribute>
+		</content>
+	</column>
+	<column>
+		<title>Beschreibung</title>
+		<content>
+			<featureAttribute>
+				<name>description</name>
+			</featureAttribute>
+		</content>
+	</column>
+	<searchable>false</searchable>
+	<actions>
+		<workflow>
+			<text>Quittieren</text>
+			<workflowId>omm.seweredgereference.dichtheit.completePlannedTask</workflowId>
+			<preselect>
+				<self />
+			</preselect>
+		</workflow>
+		<click>
+			<text>Dashboard anzeigen</text>
+			<href>
+				<dashboard>
+					<theme>
+						<self>
+							<attribute>_dashboardTheme</attribute>
+						</self>
+					</theme>
+					<id>
+						<self>
+							<attribute>_id</attribute>
+						</self>
+					</id>
+				</dashboard>
+				<internal>true</internal>
+			</href>
+		</click>
+		<delete>
+			<text>Entfernen</text>
+			<confirmationPrompt>Möchtest Du die geplante Aufgabe entfernen?</confirmationPrompt>
+			<messageDeleteSuccessful>Die geplante Aufgabe wurde entfernt.</messageDeleteSuccessful>
+			<messageDeleteFailed>Die geplante Aufgabe konnte nicht entfernt werden.</messageDeleteFailed>
+		</delete>
+	</actions>
+</Table>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Map xmlns="http://www.geograt.de/namespaces/gisx3/layerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<name>Dichtheitsprüfung</name>
+	<baseLayers>
+		<ref>commons.baselayer</ref>
+	</baseLayers>
+	<authorization>
+		<restrictToRoles>
+			<roleName>ROLE_AUSKUNFT</roleName>
+			<roleName>ROLE_Dichtheitspruefung</roleName>
+		</restrictToRoles>
+	</authorization>
+	<layers>
+		<group>
+			<visibleName>Vordergrundkarten</visibleName>
+			<layer>
+				<group>
+					<visibleName>Kanal-Haltung</visibleName>
+					<visibleByDefault>true</visibleByDefault>
+					<layer>
+						<ref>omm.seweredgereference.dichtheit.group-planned</ref>
+					</layer>
+					<layer>
+						<ref>omm.seweredgereference.dichtheit.layer-doneToday</ref>
+					</layer>
+				</group>
+			</layer>
+			<layer>
+				<ref>gisx2.alkis.amtliche-grundkarte</ref>
+			</layer>
+		</group>
+	</layers>
+</Map>
+

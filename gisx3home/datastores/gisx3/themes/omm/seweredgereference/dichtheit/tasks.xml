@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Theme xmlns="http://www.geograt.de/namespaces/gisx3/themedefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<visibleName>Dichtheitsprüfung</visibleName>
+	<dataSource>omm.seweredgereference.dichtheit.tasks</dataSource>
+	<attributeDefinition>
+		<attribute>
+			<name>entity.userAttribute_textAttribute1</name>
+			<visibleName>Kostenstelle</visibleName>
+		</attribute>
+	</attributeDefinition>
+</Theme>
