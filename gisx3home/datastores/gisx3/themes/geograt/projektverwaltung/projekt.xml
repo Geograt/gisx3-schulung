@@ -15,6 +15,34 @@
 		</restrictToRoles>
 	</editable>
 
+	<relations>
+		<relation>
+			<name>projecttasks</name>
+			<themeId>geograt.projektverwaltung.aufgabe</themeId>
+			<cardinality>ONE_TO_MANY</cardinality>
+			<optional>true</optional>
+			<visibleName>Projektaufgaben</visibleName>
+			<joinBy>
+				<hql>
+					<expression><![CDATA[_this::id = _that::parentId and _that::objectType = 'projektverwaltung.aufgabe' ]]></expression>
+				</hql>
+			</joinBy>
+		</relation>
+		<relation>
+			<name>auswertung_aufgaben</name>
+			<themeId>geograt.projektverwaltung.viewAufgabenProProjekt</themeId>
+			<cardinality>ONE_TO_ONE</cardinality>
+			<optional>true</optional>
+			<visibleName>Auswertung Projektaufgaben</visibleName>
+			<joinBy>
+				<equals>
+					<attributeNameOwner>id</attributeNameOwner>
+					<attributeNameOther>projektId</attributeNameOther>
+				</equals>
+			</joinBy>
+		</relation>
+	</relations>
+
 	<tooltip>
 		<title><![CDATA[Projekt <#if textAttribute1 != 'Erledigt'> (${textAttribute1})</#if>]]></title>
 		<menu>
@@ -67,6 +95,13 @@
 			<visibleName>Projektnummer</visibleName>
 			<required>true</required>
 			<protection>nowrite</protection>
+			<incrementalValue>
+				<sequence>
+					<applyAlways>true</applyAlways>
+					<providerId>gisx3</providerId>
+					<sequenceId>geograt.projektverwaltung.projektnr</sequenceId>
+				</sequence>
+			</incrementalValue>
 		</attribute>
 		<attribute>
 			<name>textAttribute1</name>
@@ -124,6 +159,14 @@
 			</validationRules>
 		</attribute>
 		<attribute>
+			<name>my_budget_10k</name>
+			<visibleName>Mein Budget 10K</visibleName>
+			<format>1digit</format>
+			<definition>
+				<hql type="double"><![CDATA[case when _this::userAttributes.doubleAttribute1 is null then null else _this::userAttributes.doubleAttribute1 / 1000.0 end]]></hql>
+			</definition>
+		</attribute>
+		<attribute>
 			<name>textAttribute4</name>
 			<visibleName>Beschreibung</visibleName>
 			<multiline>true</multiline>
@@ -138,8 +181,28 @@
 			<visibleName>Durchführungszeitraum Ende</visibleName>
 			<shortName>Ende</shortName>
 		</attribute>
-		
-		
+		<attribute>
+			<name>numTasks</name>
+			<visibleName>Anzahl der Aufgaben</visibleName>
+			<definition>
+				<attribute>
+					<relation>auswertung_aufgaben</relation>
+					<attributeName>numAufgaben</attributeName>
+				</attribute>
+			</definition>
+		</attribute>
+		<attribute>
+			<name>numOpenTasks</name>
+			<visibleName>Anzahl offene Aufgaben</visibleName>
+			<definition>
+				<attribute>
+					<relation>auswertung_aufgaben</relation>
+					<attributeName>numOffene</attributeName>
+				</attribute>
+			</definition>
+		</attribute>
+
+
 		<attribute>
 			<name>multiSelectAttribute1</name>
 			<visibleName>Fachbereich</visibleName>
@@ -161,4 +224,12 @@
 
 	<defaultDialog>geograt.projektverwaltung.dlg-projekt</defaultDialog>
 	<overviewDialog>geograt.projektverwaltung.dlg-projekt-overview</overviewDialog>
+
+	<defaultMessages>
+		<deleteConfirmationPrompt>Willst du das Projekt wirklich löschen?</deleteConfirmationPrompt>
+		<deleteSuccessfulText>Projekt wurde gelöscht.</deleteSuccessfulText>
+		<deleteFailedText>Projekt konnte nicht gelöscht werden.</deleteFailedText>
+	</defaultMessages>
+
+	<defaultMapId>geograt.projektverwaltung.map</defaultMapId>
 </Theme>

@@ -5,9 +5,19 @@
 			<overline>Projektnummer</overline>
 			<attributeName>visibleId</attributeName>
 			<actions>
-				<showMap>
-					<mapId>geograt.projektverwaltung.map</mapId>
-				</showMap>
+				<showMap />
+				<showMapWithNamedFilter>
+					<text>Nur dieses Projekt zeigen</text>
+					<namedFilter>geograt.projektverwaltung.projekt</namedFilter>
+					<namedFilterParameter>
+						<name>nfpProjektId</name>
+						<type>
+							<attribute>
+								<attribute>id</attribute>
+							</attribute>
+						</type>
+					</namedFilterParameter>
+				</showMapWithNamedFilter>
 				<workflow>
 					<text>Bearbeiten</text>
 					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
@@ -39,9 +49,6 @@
 				</showReport>
 				<delete>
 					<text>Löschen</text>
-					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
-					<messageDeleteSuccessful>Projekt wurde gelöscht.</messageDeleteSuccessful>
-					<messageDeleteFailed>Projekt konnte nicht gelöscht werden.</messageDeleteFailed>
 					<themeAfterDelete>
 						<constant>
 							<value>gisx3:geograt.projektverwaltung.projekt</value>
@@ -51,20 +58,22 @@
 			</actions>
 		</headline>
 		<highlights>
-			<name>Projektstatus</name>
 			<attributeName>textAttribute1</attributeName>
 		</highlights>
 		<highlights>
-			<name>Projektname</name>
 			<attributeName>textAttribute2</attributeName>
 		</highlights>
 		<highlights>
-			<name>Verantwortlicher</name>
 			<attributeName>textAttribute3</attributeName>
 		</highlights>
 		<highlights>
-			<name>Budget</name>
 			<attributeName>doubleAttribute1</attributeName>
+		</highlights>
+		<highlights>
+			<attributeName>numTasks</attributeName>
+		</highlights>
+		<highlights>
+			<attributeName>numOpenTasks</attributeName>
 		</highlights>
 	</header>
 	<component>

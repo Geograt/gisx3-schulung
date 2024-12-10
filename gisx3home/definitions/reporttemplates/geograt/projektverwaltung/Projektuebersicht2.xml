@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportMetadata xmlns="http://www.geograt.de/namespaces/gisx3/reportdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<fileTitle><![CDATA[Projektübersicht]]></fileTitle>
+	<authorization>
+		<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+	</authorization>
+	<dataSourceOptions>
+		<reportTheme>gisx3:geograt.projektverwaltung.projekt</reportTheme>
+	</dataSourceOptions>
+	<templateExtensions>
+		<alias key="projektnummer">visibleId</alias>
+		<alias key="projektstatus">textAttribute1</alias>
+		<alias key="projektname">textAttribute2</alias>
+		<template key="verantwortlicher"><![CDATA[${textAttribute3}]]></template>
+		<template key="beschreibung"><![CDATA[${textAttribute4}]]></template>
+	</templateExtensions>
+</ReportMetadata>

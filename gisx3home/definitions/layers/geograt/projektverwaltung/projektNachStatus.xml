@@ -6,8 +6,7 @@
 	<dataStore>gisx3</dataStore>
 	<dataSource>geograt.projektverwaltung.projekt</dataSource>
 	<tileGrid>
-		<minZoom>13</minZoom>
-		<maxZoom>13</maxZoom>
+		<tileSize>2048</tileSize>
 	</tileGrid>
 	<type>TileVector</type>
 	<showTooltip>true</showTooltip>

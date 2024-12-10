@@ -21,9 +21,7 @@
 			<fullscreen>true</fullscreen>
 			<actions>
 				<click />
-				<showMap>
-					<mapId>geograt.projektverwaltung.map</mapId>
-				</showMap>
+				<showMap />
 				<workflow>
 					<text>Bearbeiten</text>
 					<workflowId>geograt.projektverwaltung.updateHeaderAttributeProjekt</workflowId>
@@ -66,11 +64,27 @@
 						</constant>
 					</elementId>
 				</showReport>
+				<showReport>
+					<text>Projektübersicht 2</text>
+					<icon>file-chart</icon>
+					<displayConditions>
+						<selectionCondition>none</selectionCondition>
+					</displayConditions>
+					<reportFormat>jrpdf2</reportFormat>
+					<reportId>geograt.PROJEKTVERWALTUNG.projektuebersicht2</reportId>
+					<elementTheme>
+						<constant>
+							<value>gisx3:geograt.projektverwaltung.projekt</value>
+						</constant>
+					</elementTheme>
+					<elementId>
+						<constant>
+							<value>dummy</value>
+						</constant>
+					</elementId>
+				</showReport>
 				<delete>
 					<text>Löschen</text>
-					<confirmationPrompt>Willst Du das Projekt wirklich löschen?</confirmationPrompt>
-					<messageDeleteSuccessful>Projekt wurde gelöscht.</messageDeleteSuccessful>
-					<messageDeleteFailed>Projekt konnte nicht gelöscht werden.</messageDeleteFailed>
 				</delete>
 				<export>
 					<text>Export nach Excel</text>

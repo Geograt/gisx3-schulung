@@ -10,16 +10,15 @@
 			</featureThemes>
 			<parts>
 				<update>
+					<updateThemeId>gisx3:geograt.projektverwaltung.projekt</updateThemeId>
 					<steps>
 						<form>
 							<title>Daten zum Projekt</title>
 							<description>Gib bitte Daten zum Projekt ein.</description>
 							<field>
-								<label>Projektnummer</label>
 								<attributeName>visibleId</attributeName>
 							</field>
 							<field>
-								<label>Projektstatus</label>
 								<attributeName>textAttribute1</attributeName>
 							</field>
 							<field>
