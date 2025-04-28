@@ -3,6 +3,13 @@
 	<title>Neues Projekt</title>
 	<icon>add</icon>
 	<showInMapMenu>true</showInMapMenu>
+	<variables>
+		<variable name="aufgabe">
+			<dataType>boolean</dataType>
+			<defaultLabel>Aufgabe anlegen</defaultLabel>
+			<defaultValue>false</defaultValue>
+		</variable>
+	</variables>
 	<parts>
 		<create>
 			<partId>createProject</partId>
@@ -14,12 +21,32 @@
 					<attributeName>id</attributeName>
 					<function>uuid</function>
 				</attribute>
-				
+
 				<attribute>
 					<attributeName>textAttribute3</attributeName>
 					<function>currentUserId</function>
 				</attribute>
 			</presets>
+			<hooks>
+				<onAttributeChange>
+					<remoteProcedureCall>
+						<procedureId>geograt.projektverwaltung.svcAufgabeAnlegen</procedureId>
+						<parameter>
+							<parameterName>budget</parameterName>
+							<value>
+								<value>
+									<fromFeatureOfPart>createProject</fromFeatureOfPart>
+									<featureAttribute>doubleAttribute1</featureAttribute>
+								</value>
+							</value>
+						</parameter>
+						<result>
+							<returnedName>machAufgabe</returnedName>
+							<targetAttributeName>local::aufgabe</targetAttributeName>
+						</result>
+					</remoteProcedureCall>
+				</onAttributeChange>
+			</hooks>
 			<steps>
 				<geometry>
 					<title>Geometrie erfassen</title>
@@ -30,9 +57,59 @@
 
 				<referencedForm>
 					<title>Daten zum Projekt</title>
-					<formId>geograt.projektverwaltung.form-projekt</formId>
+					<formId>geograt.projektverwaltung.form-projekt-create</formId>
 				</referencedForm>
 			</steps>
+			<parts>
+				<setLocalVariables />
+				<path>
+					<if>
+						<cqlFilter><![CDATA["local::aufgabe" = true]]></cqlFilter>
+						<then>
+							<create>
+								<themeId>gisx3:geograt.projektverwaltung.aufgabe</themeId>
+								<maxFeatures>1</maxFeatures>
+								<presets>
+									<attribute>
+										<attributeName>parentId</attributeName>
+										<value>
+											<fromFeatureOfPart>createProject</fromFeatureOfPart>
+											<featureAttribute>id</featureAttribute>
+										</value>
+									</attribute>
+								</presets>
+								<steps>
+									<form>
+										<title>Details zur Aufgabe</title>
+										<field>
+											<label>Zusammenfassung</label>
+											<attributeName>textAttribute2</attributeName>
+										</field>
+										<field>
+											<label>Aufgabenstatus</label>
+											<attributeName>textAttribute1</attributeName>
+										</field>
+										<field>
+											<label>Bearbeiter</label>
+											<attributeName>textAttribute3</attributeName>
+										</field>
+										<field>
+											<label>Beschreibung</label>
+											<attributeName>textAttribute4</attributeName>
+										</field>
+										<field>
+											<label>Fällig bis</label>
+											<attributeName>dateAttribute1</attributeName>
+										</field>
+									</form>
+								</steps>
+							</create>
+						</then>
+					</if>
+
+
+				</path>
+			</parts>
 		</create>
 	</parts>
 	<actions>

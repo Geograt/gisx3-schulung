@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://www.geograt.de/namespaces/gisx3/triggerdefinition/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<capabilities>
+		<executeAsService>true</executeAsService>
+		<roleRestrictions>
+			<roleName>ROLE_Projektverwaltung_Auskunft</roleName>
+		</roleRestrictions>
+	</capabilities>
+	<parameter>
+		<name>budget</name>
+		<type>double</type>
+	</parameter>
+	<commands>
+		<tempFeature>
+			<partId>return</partId>
+			<presets>
+				<single attributeName="machAufgabe">
+					<constant>
+						<boolean>false</boolean>
+					</constant>
+				</single>
+			</presets>
+		</tempFeature>
+		<condition>
+			<if>
+				<cql>
+					<expression><![CDATA["_input.budget" is not null and "_input.budget" > 1000]]></expression>
+				</cql>
+			</if>
+			<then>
+				<tempFeature>
+					<partId>return</partId>
+					<presets>
+						<single attributeName="machAufgabe">
+							<constant>
+								<boolean>true</boolean>
+							</constant>
+						</single>
+					</presets>
+				</tempFeature>
+			</then>
+		</condition>
+	</commands>
+	<returnsFeatureOfPart>return</returnsFeatureOfPart>
+</Procedure>
